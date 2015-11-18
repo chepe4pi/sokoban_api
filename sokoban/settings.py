@@ -36,7 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'map',
+    'sk_core',
+    'sk_map',
 )
 
 MIDDLEWARE_CLASSES = (
