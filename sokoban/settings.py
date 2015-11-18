@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'sk_core',
     'sk_map',
+    'sk_users',
+    'sk_game',
 )
 
 MIDDLEWARE_CLASSES = (
