@@ -1,8 +1,8 @@
-from rest_framework import serializers
+from sk_core.serializer import BaseModelSerializer
 from ..models import Wall, Box, Point, Men, Map
 
 
-class MapObjectSerializer(serializers.ModelSerializer):
+class MapObjectSerializer(BaseModelSerializer):
     class Meta:
         fields = ('id', 'x', 'y')
 
@@ -27,7 +27,7 @@ class MenSerializer(MapObjectSerializer):
         model = Men
 
 
-class MapBaseSerializer(serializers.ModelSerializer):
+class MapBaseSerializer(BaseModelSerializer):
     class Meta:
         model = Map
         fields = ('id', 'title', 'owner')
@@ -37,7 +37,7 @@ class MapSerializer(MapBaseSerializer):
     wall_set = WallSerializer(many=True)
     box_set = BoxSerializer(many=True)
     point_set = PointSerializer(many=True)
-    men = MenSerializer()
+    men = MenSerializer(required=False)
 
     class Meta(MapBaseSerializer.Meta):
         fields = ('id', 'title', 'owner', 'wall_set', 'box_set', 'point_set', 'men')

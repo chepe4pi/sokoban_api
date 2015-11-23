@@ -48,5 +48,5 @@ class Wall(Timestampable, MapLocation, OnMap, models.Model):
     pass
 
 
-class Men(Timestampable, MapLocation, OnMapUniq, models.Model):
+class Men(Timestampable, MapLocation, OnMap, models.Model):
     pass

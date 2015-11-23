@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+
+class BaseModelViewSet(ModelViewSet):
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
