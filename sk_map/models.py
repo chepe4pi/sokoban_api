@@ -3,12 +3,15 @@ from sk_core.models import Timestampable
 from django.contrib.auth.models import User
 
 
+class Map(Timestampable, models.Model):
+    owner = models.ForeignKey(User)
+    title = models.CharField(max_length=255)
+    public = models.BooleanField(default=False)
+
+
 class MapLocation(models.Model):
     x = models.PositiveSmallIntegerField()
     y = models.PositiveSmallIntegerField()
-
-    def get_position(self):
-        return self.x, self.y
 
     def set_position(self, x, y):
         setattr(self, 'x', x)
@@ -19,11 +22,6 @@ class MapLocation(models.Model):
         abstract = True
 
 
-class Map(Timestampable):
-    user = models.ForeignKey(User)
-    name = models.CharField(max_length=255)
-
-
 class OnMap(models.Model):
     map = models.ForeignKey(Map)
 
@@ -32,7 +30,7 @@ class OnMap(models.Model):
 
 
 class OnMapUniq(models.Model):
-    map = models.ForeignKey(Map, unique=True)
+    map = models.OneToOneField(Map)
 
     class Meta:
         abstract = True

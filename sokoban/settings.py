@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'sk_map',
     'sk_users',
     'sk_game',
+    'sk_auth',
 )
 
 MIDDLEWARE_CLASSES = (
