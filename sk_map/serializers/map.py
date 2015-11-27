@@ -4,7 +4,7 @@ from ..models import Wall, Box, Point, Men, Map
 
 class MapObjectSerializer(BaseModelSerializer):
     class Meta:
-        fields = ('id', 'x', 'y')
+        fields = ('id', 'x', 'y', 'aggrigator')
 
 
 class WallSerializer(MapObjectSerializer):
