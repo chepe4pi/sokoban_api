@@ -1,17 +1,24 @@
-from rest_framework.permissions import DjangoObjectPermissions
+from rest_framework import permissions
 
 
-class CustomObjectPermissions(DjangoObjectPermissions):
-    """
-    Similar to `DjangoObjectPermissions`, but adding 'view' permissions.
-    """
-    # TODO remove if unused
-    perms_map = {
-        'GET': ['%(app_label)s.view_%(model_name)s'],
-        'OPTIONS': ['%(app_label)s.view_%(model_name)s'],
-        'HEAD': ['%(app_label)s.view_%(model_name)s'],
-        'POST': ['%(app_label)s.add_%(model_name)s'],
-        'PUT': ['%(app_label)s.change_%(model_name)s'],
-        'PATCH': ['%(app_label)s.change_%(model_name)s'],
-        'DELETE': ['%(app_label)s.delete_%(model_name)s'],
-    }
+class IsOwnerOrReadOnlyIfPublic(permissions.BasePermission):
+    message = 'Access to object not allowed.'
+
+    def has_object_permission(self, request, view, obj):
+        print(request.method in permissions.SAFE_METHODS and obj.is_public(), obj)
+        print(obj.get_owner() == request.user, obj)
+        return (
+            request.method in permissions.SAFE_METHODS and obj.is_public() or
+            obj.get_owner() == request.user
+        )
+
+
+class ReadOnly(permissions.BasePermission):
+    message = 'Read only View.'
+
+    def has_object_permission(self, request, view, obj):
+
+        return (
+            request.method in permissions.SAFE_METHODS and obj.is_public() or
+            request.method in permissions.SAFE_METHODS and obj.get_owner() == request.user
+        )

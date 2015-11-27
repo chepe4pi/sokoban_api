@@ -27,17 +27,17 @@ class MenSerializer(MapObjectSerializer):
         model = Men
 
 
-class MapBaseSerializer(BaseModelSerializer):
+class MapSerializer(BaseModelSerializer):
     class Meta:
         model = Map
         fields = ('id', 'title', 'owner')
 
 
-class MapSerializer(MapBaseSerializer):
+class MapDetailSerializer(MapSerializer):
     wall_set = WallSerializer(many=True)
     box_set = BoxSerializer(many=True)
     point_set = PointSerializer(many=True)
     men = MenSerializer(required=False)
 
-    class Meta(MapBaseSerializer.Meta):
+    class Meta(MapSerializer.Meta):
         fields = ('id', 'title', 'owner', 'wall_set', 'box_set', 'point_set', 'men')

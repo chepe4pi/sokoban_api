@@ -1,31 +1,21 @@
-from django.utils.functional import cached_property
-from sk_core.views import BaseModelViewSet
-from ..permissions import IsOwnerOrReadOnlyIfPublic, ReadOnly
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.viewsets import ModelViewSet
-from ..models import Map, Wall, Box, Point, Men
-from ..serializers.map import MapBaseSerializer, MapSerializer,\
-    WallSerializer, BoxSerializer, PointSerializer, MenSerializer
-from rest_framework.viewsets import GenericViewSet
 from rest_framework.mixins import RetrieveModelMixin
-from django.shortcuts import get_object_or_404
-from rest_framework.filters import DjangoObjectPermissionsFilter
-from sk_core.permissions import CustomObjectPermissions
+from rest_framework.viewsets import GenericViewSet
+from rest_framework.viewsets import ModelViewSet
+
+from sk_core.permissions import IsOwnerOrReadOnlyIfPublic, ReadOnly
+from sk_core.views import BaseModelViewSet
+from ..models import Map, Wall, Box, Point, Men
+from ..serializers.map import MapSerializer, MapDetailSerializer,\
+    WallSerializer, BoxSerializer, PointSerializer, MenSerializer
 
 
 class MapObjectsBaseViewSet(ModelViewSet):
-    permission_classes = [CustomObjectPermissions, IsOwnerOrReadOnlyIfPublic]
-    filter_backends = [DjangoObjectPermissionsFilter] # TODO Enable filter
+    permission_classes = [IsOwnerOrReadOnlyIfPublic]
     filter_fields = ('aggrigator__owner', 'aggrigator__public')
-
-    # def get_object(self):
-    #     obj = get_object_or_404(self.get_queryset())
-    #     self.check_object_permissions(self.request, obj)
-    #     return obj
 
     class Meta:
         abstract = True
-    # TODO add filter calss
+    # TODO add filter class
 
 
 class MapsViewSet(BaseModelViewSet):
@@ -34,9 +24,9 @@ class MapsViewSet(BaseModelViewSet):
     """
     permission_classes = [IsOwnerOrReadOnlyIfPublic]
     queryset = Map.objects.all()
-    serializer_class = MapBaseSerializer
+    serializer_class = MapSerializer
     filter_fields = ('owner', 'public')
-    # TODO add filter calss
+    # TODO add filter class
 
 
 class MapDetailViewSet(RetrieveModelMixin, GenericViewSet):
@@ -44,7 +34,7 @@ class MapDetailViewSet(RetrieveModelMixin, GenericViewSet):
     A View for get full description of Map.
     """
     queryset = Map.objects.all()
-    serializer_class = MapSerializer
+    serializer_class = MapDetailSerializer
     permission_classes = [ReadOnly]  # TODO AggrigatorReadOnly
 
 
