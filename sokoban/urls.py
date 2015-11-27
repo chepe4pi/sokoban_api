@@ -1,11 +1,18 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
-from sk_map.api.map import MapsViewSet
+from sk_map.api.map import MapsViewSet, MapDetailViewSet, WallViewSet, BoxViewSet, PointViewSet, MenViewSet
+from sk_auth.api.auth import RegisterView
 
 
 router = DefaultRouter()
 router.register(r'maps', MapsViewSet)
+router.register(r'map_details', MapDetailViewSet)
+router.register(r'wall', WallViewSet)
+router.register(r'box', BoxViewSet)
+router.register(r'point', PointViewSet)
+router.register(r'men', MenViewSet)
+router.register(r'register', RegisterView)
 urlpatterns = router.urls
 
 
@@ -14,10 +21,9 @@ urlpatterns_admin = patterns('',
 )
 
 
-urlpatterns_auth = patterns('sk_auth.api.auth',
-    url('^auth/login/$', 'login_api_view', name='auth-login'),
-    url('^auth/logout/$', 'logout_api_view', name='auth-logout'),
-)
+urlpatterns_rest = patterns('',
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+                            )
 
 urlpatterns += urlpatterns_admin
-urlpatterns += urlpatterns_auth
+urlpatterns += urlpatterns_rest
