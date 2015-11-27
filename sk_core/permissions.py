@@ -5,8 +5,6 @@ class IsOwnerOrReadOnlyIfPublic(permissions.BasePermission):
     message = 'Access to object not allowed.'
 
     def has_object_permission(self, request, view, obj):
-        print(request.method in permissions.SAFE_METHODS and obj.is_public(), obj)
-        print(obj.get_owner() == request.user, obj)
         return (
             request.method in permissions.SAFE_METHODS and obj.is_public() or
             obj.get_owner() == request.user

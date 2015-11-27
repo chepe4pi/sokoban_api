@@ -1,23 +1,20 @@
-from django_filters import FilterSet, MethodFilter
-from .models import Wall, Box, Point, Men, Map
+from django_filters import FilterSet, CharFilter
+from sk_map.models import Wall, Box, Point, Men, Map
 
 
 class MapBaseFilterSet(FilterSet):
-    owner = MethodFilter(action='filter_public')
+    owner = CharFilter(name='aggrigator__owner__username')
 
     class Meta:
         abstract = True
         fields = ['owner']
 
-    def filter_public(self, queryset, value):
-        return queryset.filter(aggrigator__owner__username=value, aggrigator__public=True)
-
 
 class MapFilterSet(MapBaseFilterSet):
+    owner = CharFilter(name='owner__username')
+
     class Meta(MapBaseFilterSet.Meta):
         model = Map
-    def filter_public(self, queryset, value):
-        return queryset.filter(owner__username=value, public=True)
 
 
 class WallFilterSet(MapBaseFilterSet):
