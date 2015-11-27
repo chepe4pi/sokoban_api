@@ -1,4 +1,5 @@
-Django==1.8.5
-django-extensions==1.5.7
-djangorestframework==3.2.4
-django-rest-swagger==0.3.4
+Django
+django-extensions
+djangorestframework
+django-filter
+django-crispy-forms
