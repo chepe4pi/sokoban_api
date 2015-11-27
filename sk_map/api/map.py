@@ -1,7 +1,6 @@
 from rest_framework.mixins import RetrieveModelMixin
-from rest_framework.viewsets import GenericViewSet
-from rest_framework.viewsets import ModelViewSet
-
+from rest_framework.viewsets import GenericViewSet, ModelViewSet
+from ..filters import WallFilterSet, BoxFilterSet, PointFilterSet, MenFilterSet, MapFilterSet
 from sk_core.permissions import IsOwnerOrReadOnlyIfPublic, ReadOnly
 from sk_core.views import BaseModelViewSet
 from ..models import Map, Wall, Box, Point, Men
@@ -11,11 +10,9 @@ from ..serializers.map import MapSerializer, MapDetailSerializer,\
 
 class MapObjectsBaseViewSet(ModelViewSet):
     permission_classes = [IsOwnerOrReadOnlyIfPublic]
-    filter_fields = ('aggrigator__owner', 'aggrigator__public')
-
+# TODO List only through filter
     class Meta:
         abstract = True
-    # TODO add filter class
 
 
 class MapsViewSet(BaseModelViewSet):
@@ -25,8 +22,8 @@ class MapsViewSet(BaseModelViewSet):
     permission_classes = [IsOwnerOrReadOnlyIfPublic]
     queryset = Map.objects.all()
     serializer_class = MapSerializer
-    filter_fields = ('owner', 'public')
-    # TODO add filter class
+    filter_class = MapFilterSet
+# TODO List only through filter
 
 
 class MapDetailViewSet(RetrieveModelMixin, GenericViewSet):
@@ -44,6 +41,7 @@ class WallViewSet(MapObjectsBaseViewSet):
     """
     serializer_class = WallSerializer
     queryset = Wall.objects.all()
+    filter_class = WallFilterSet
 
 
 class BoxViewSet(MapObjectsBaseViewSet):
@@ -52,6 +50,7 @@ class BoxViewSet(MapObjectsBaseViewSet):
     """
     serializer_class = BoxSerializer
     queryset = Box.objects.all()
+    filter_class = BoxFilterSet
 
 
 class PointViewSet(MapObjectsBaseViewSet):
@@ -60,6 +59,7 @@ class PointViewSet(MapObjectsBaseViewSet):
     """
     serializer_class = PointSerializer
     queryset = Point.objects.all()
+    filter_class = PointFilterSet
 
 
 class MenViewSet(MapObjectsBaseViewSet):
@@ -68,3 +68,4 @@ class MenViewSet(MapObjectsBaseViewSet):
     """
     serializer_class = MenSerializer
     queryset = Men.objects.all()
+    filter_class = MenFilterSet
