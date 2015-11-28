@@ -2,14 +2,6 @@ from rest_framework.filters import BaseFilterBackend
 from django.db.models import Q
 
 
-class AggIsPublicFilterBackend(BaseFilterBackend):
-    """
-    Filter that only allows users to see only public objects.
-    """
-    def filter_queryset(self, request, queryset, view):
-        return queryset.filter(Q(aggrigator__public=True) | Q(aggrigator__owner=request.user))
-
-
 class IsPublicFilterBackend(BaseFilterBackend):
     """
     Filter that only allows users to see only public objects.
