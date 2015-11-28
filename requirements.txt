@@ -3,3 +3,4 @@ django-extensions
 djangorestframework
 django-filter
 django-crispy-forms
+# TODO dump packages with versions

@@ -1,31 +1,20 @@
-from django.utils.functional import cached_property
-from sk_core.views import BaseModelViewSet
-from ..permissions import IsOwnerOrReadOnlyIfPublic, ReadOnly
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.viewsets import ModelViewSet
-from ..models import Map, Wall, Box, Point, Men
-from ..serializers.map import MapBaseSerializer, MapSerializer,\
-    WallSerializer, BoxSerializer, PointSerializer, MenSerializer
-from rest_framework.viewsets import GenericViewSet
 from rest_framework.mixins import RetrieveModelMixin
-from django.shortcuts import get_object_or_404
-from rest_framework.filters import DjangoObjectPermissionsFilter
-from sk_core.permissions import CustomObjectPermissions
+from rest_framework.viewsets import GenericViewSet, ModelViewSet
+from ..filters.filters import WallFilterSet, BoxFilterSet, PointFilterSet, MenFilterSet, MapFilterSet
+from sk_core.permissions import IsOwnerOrReadOnlyIfPublic, ReadOnly
+from sk_core.views import BaseModelViewSet
+from ..models import Map, Wall, Box, Point, Men
+from ..serializers.map import MapSerializer, MapDetailSerializer,\
+    WallSerializer, BoxSerializer, PointSerializer, MenSerializer
+from ..filters.backends import IsPublicFilterBackend, AggIsPublicFilterBackend
+from rest_framework.filters import DjangoFilterBackend
 
 
 class MapObjectsBaseViewSet(ModelViewSet):
-    permission_classes = [CustomObjectPermissions, IsOwnerOrReadOnlyIfPublic]
-    filter_backends = [DjangoObjectPermissionsFilter] # TODO Enable filter
-    filter_fields = ('aggrigator__owner', 'aggrigator__public')
-
-    # def get_object(self):
-    #     obj = get_object_or_404(self.get_queryset())
-    #     self.check_object_permissions(self.request, obj)
-    #     return obj
-
+    filter_backends = (DjangoFilterBackend, AggIsPublicFilterBackend)
+    permission_classes = [IsOwnerOrReadOnlyIfPublic]
     class Meta:
         abstract = True
-    # TODO add filter calss
 
 
 class MapsViewSet(BaseModelViewSet):
@@ -34,9 +23,9 @@ class MapsViewSet(BaseModelViewSet):
     """
     permission_classes = [IsOwnerOrReadOnlyIfPublic]
     queryset = Map.objects.all()
-    serializer_class = MapBaseSerializer
-    filter_fields = ('owner', 'public')
-    # TODO add filter calss
+    serializer_class = MapSerializer
+    filter_class = MapFilterSet
+    filter_backends = [DjangoFilterBackend, IsPublicFilterBackend]
 
 
 class MapDetailViewSet(RetrieveModelMixin, GenericViewSet):
@@ -44,7 +33,8 @@ class MapDetailViewSet(RetrieveModelMixin, GenericViewSet):
     A View for get full description of Map.
     """
     queryset = Map.objects.all()
-    serializer_class = MapSerializer
+    filter_class = MapFilterSet
+    serializer_class = MapDetailSerializer
     permission_classes = [ReadOnly]  # TODO AggrigatorReadOnly
 
 
@@ -54,6 +44,7 @@ class WallViewSet(MapObjectsBaseViewSet):
     """
     serializer_class = WallSerializer
     queryset = Wall.objects.all()
+    filter_class = WallFilterSet
 
 
 class BoxViewSet(MapObjectsBaseViewSet):
@@ -62,6 +53,7 @@ class BoxViewSet(MapObjectsBaseViewSet):
     """
     serializer_class = BoxSerializer
     queryset = Box.objects.all()
+    filter_class = BoxFilterSet
 
 
 class PointViewSet(MapObjectsBaseViewSet):
@@ -70,6 +62,7 @@ class PointViewSet(MapObjectsBaseViewSet):
     """
     serializer_class = PointSerializer
     queryset = Point.objects.all()
+    filter_class = PointFilterSet
 
 
 class MenViewSet(MapObjectsBaseViewSet):
@@ -78,3 +71,4 @@ class MenViewSet(MapObjectsBaseViewSet):
     """
     serializer_class = MenSerializer
     queryset = Men.objects.all()
+    filter_class = MenFilterSet
