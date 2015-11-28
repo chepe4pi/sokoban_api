@@ -15,9 +15,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Box',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
+                ('public', models.BooleanField(default=False)),
                 ('x', models.PositiveSmallIntegerField()),
                 ('y', models.PositiveSmallIntegerField()),
             ],
@@ -28,11 +29,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Map',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('title', models.CharField(max_length=255)),
                 ('public', models.BooleanField(default=False)),
+                ('title', models.CharField(max_length=255)),
                 ('owner', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -42,12 +43,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Men',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
+                ('public', models.BooleanField(default=False)),
                 ('x', models.PositiveSmallIntegerField()),
                 ('y', models.PositiveSmallIntegerField()),
-                ('aggrigator', models.OneToOneField(to='sk_map.Map')),
+                ('map', models.OneToOneField(to='sk_map.Map')),
+                ('owner', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'abstract': False,
@@ -56,12 +59,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Point',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
+                ('public', models.BooleanField(default=False)),
                 ('x', models.PositiveSmallIntegerField()),
                 ('y', models.PositiveSmallIntegerField()),
-                ('aggrigator', models.ForeignKey(to='sk_map.Map')),
+                ('map', models.ForeignKey(to='sk_map.Map')),
+                ('owner', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'abstract': False,
@@ -70,12 +75,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Wall',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
+                ('public', models.BooleanField(default=False)),
                 ('x', models.PositiveSmallIntegerField()),
                 ('y', models.PositiveSmallIntegerField()),
-                ('aggrigator', models.ForeignKey(to='sk_map.Map')),
+                ('map', models.ForeignKey(to='sk_map.Map')),
+                ('owner', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'abstract': False,
@@ -83,7 +90,12 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='box',
-            name='aggrigator',
+            name='map',
             field=models.ForeignKey(to='sk_map.Map'),
+        ),
+        migrations.AddField(
+            model_name='box',
+            name='owner',
+            field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
         ),
     ]
