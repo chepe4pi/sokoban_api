@@ -9,6 +9,7 @@ from ..serializers.map import MapSerializer, MapDetailSerializer,\
 from ..filters.backends import IsPublicFilterBackend
 from rest_framework.filters import DjangoFilterBackend
 
+# TODO testing
 
 class MapObjectsBaseViewSet(BaseModelViewSet):
     filter_backends = (DjangoFilterBackend, IsPublicFilterBackend)
