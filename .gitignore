@@ -58,6 +58,6 @@ target/
 
 # PyCharm
 
-.idea/
+.idea/*
 
 db.sqlite3

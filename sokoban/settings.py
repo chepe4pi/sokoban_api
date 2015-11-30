@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'sk_core',
     'sk_map',
+    'sk_auth',
     # 'sk_profiles',
     'sk_game',
 )
@@ -80,6 +81,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
 
 # Internationalization

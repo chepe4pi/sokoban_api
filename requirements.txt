@@ -3,4 +3,6 @@ django-extensions
 djangorestframework
 django-filter
 django-crispy-forms
+factory_boy
+fake-factory
 # TODO dump packages with versions
