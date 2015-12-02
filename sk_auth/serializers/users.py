@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import authenticate
+from django.contrib.auth.password_validation import validate_password
 
 
 class BaseAuthSerializer(serializers.ModelSerializer):
@@ -15,10 +16,10 @@ class BaseAuthSerializer(serializers.ModelSerializer):
 
 class RegisterSerializer(BaseAuthSerializer):
 
-    def create(self, validated_data):
-        user = User.objects.create_user(username=validated_data['username'], email=validated_data['email'],\
-                                        password=validated_data['password'])
-        return user
+    def validate(self, attrs):
+        validate_password(attrs.get('password'))
+        super(RegisterSerializer, self).validate(attrs)
+        return attrs
 
 
 class LoginSerializer(serializers.Serializer):
