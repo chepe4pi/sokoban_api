@@ -10,11 +10,17 @@ class BaseAuthSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'email')
+        fields = ('username', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
 
 class RegisterSerializer(BaseAuthSerializer):
+
+    def create(self, validated_data):
+        user = super(RegisterSerializer, self).create(validated_data)
+        user.set_password(validated_data['password'])
+        user.save()
+        return user
 
     def validate(self, attrs):
         validate_password(attrs.get('password'))
