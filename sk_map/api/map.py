@@ -35,7 +35,7 @@ class MapDetailViewSet(RetrieveModelMixin, GenericViewSet):
     queryset = Map.objects.all()
     filter_class = MapFilterSet
     serializer_class = MapDetailSerializer
-    permission_classes = [ReadOnly]  # TODO AggrigatorReadOnly
+    permission_classes = [ReadOnly]
 
 
 class WallViewSet(MapObjectsBaseViewSet):
