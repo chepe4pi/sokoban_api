@@ -1,8 +1,9 @@
-Django
+Django=1.9
 django-extensions
 djangorestframework
 django-filter
 django-crispy-forms
 factory_boy
 fake-factory
+django-guardian
 # TODO dump packages with versions
