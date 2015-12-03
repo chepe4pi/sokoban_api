@@ -4,6 +4,8 @@ from sk_core.models import AccessibleModel, TimestampableModel
 
 class Map(AccessibleModel, TimestampableModel):
     title = models.CharField(max_length=255)
+    x_size = models.PositiveSmallIntegerField()
+    y_size = models.PositiveSmallIntegerField()
 
 
 class MapLocation(AccessibleModel, TimestampableModel):
