@@ -120,12 +120,10 @@ class MapObjTestCase(object):
         self.assertEqual(self.response.data, self.data)
 
     def test_allow_put_own_obj(self):
-        print(self.data)
         self.data['x'] = faker.random_int(min=0, max=99)
         self.data['y'] = faker.random_int(min=0, max=99)
         response = self.client.put(self.obj_url, self.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        print(response.data)
         self.assertEqual(response.data, self.data)
 
 
