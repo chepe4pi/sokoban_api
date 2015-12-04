@@ -1,7 +1,9 @@
 import factory
-from sk_core.factories import faker
+from faker import Faker
 from sk_auth.tests.factories import UserFactory
 from ..models import Map, Wall, Box, Point, Men
+
+faker = Faker()
 
 
 class AccesableObjBaseFactory(factory.django.DjangoModelFactory):
@@ -9,7 +11,7 @@ class AccesableObjBaseFactory(factory.django.DjangoModelFactory):
         abstract = True
 
     owner = factory.SubFactory(UserFactory)
-    public = True
+    public = False
 
 
 class MapFactory(AccesableObjBaseFactory):
@@ -17,8 +19,6 @@ class MapFactory(AccesableObjBaseFactory):
         model = Map
 
     title = faker.word()
-    x_size = faker.random_int(min=0, max=99)
-    y_size = faker.random_int(min=0, max=99)
 
 
 class MapObjFactory(AccesableObjBaseFactory):
@@ -26,8 +26,8 @@ class MapObjFactory(AccesableObjBaseFactory):
         abstract = True
 
     map = factory.SubFactory(MapFactory)
-    x = factory.LazyAttribute(lambda obj: faker.random_int(min=0, max=obj.map.x_size))
-    y = factory.LazyAttribute(lambda obj: faker.random_int(min=0, max=obj.map.y_size))
+    x = factory.LazyAttribute(lambda obj: faker.random_int(min=0, max=99))
+    y = factory.LazyAttribute(lambda obj: faker.random_int(min=0, max=99))
 
 
 class WallFactory(MapObjFactory):

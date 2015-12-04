@@ -16,12 +16,17 @@ class LoginTestCase(APITestCase):
             'username': self.user.username,
             'password': self.user.password
         }
+        self.expected = {
+            'username': self.user.username,
+            'email': self.user.email,
+        }
         self.user.set_password(self.user.password)
         self.user.save()
 
     def test_login(self):
         response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, self.expected)
         self.assertEqual(User.objects.get(username=self.user.username).username, self.user.username)
 
     def test_wrong_password(self):
@@ -54,49 +59,48 @@ class RegTestCase(APITestCase):
             'email': self.user.email,
             'password': self.user.password
         }
+        self.expected = {
+            'username': self.user.username,
+            'email': self.user.email,
+        }
 
     def test_create_user(self):
         response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data, self.expected)
         self.assertEqual(User.objects.get(username=self.user.username).username, self.user.username)
 
     def test_not_valid_password(self):
-        wrong_data = self.data.copy()
-
-        wrong_data['password'] = '1$aF'
-        response = self.client.post(self.url, wrong_data)
+        self.data['password'] = '1$aF'
+        response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-        wrong_data['password'] = '1213123'
-        response = self.client.post(self.url, wrong_data)
+        self.data['password'] = '1213123'
+        response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-        wrong_data['password'] = 'password'
-        response = self.client.post(self.url, wrong_data)
+        self.data['password'] = 'password'
+        response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-        wrong_data['password'] = ''
-        response = self.client.post(self.url, wrong_data)
+        self.data['password'] = ''
+        response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_not_valid_email(self):
-        wrong_data = self.data.copy()
-
-        wrong_data['email'] = self.user.username
-        response = self.client.post(self.url, wrong_data)
+        self.data['email'] = self.user.username
+        response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-        wrong_data['email'] = ''
-        response = self.client.post(self.url, wrong_data)
+        self.data['email'] = ''
+        response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_not_valid_username(self):
-        wrong_data = self.data.copy()
-
-        wrong_data['username'] = '%$%Fjfk'
-        response = self.client.post(self.url, wrong_data)
+        self.data['username'] = '%$%Fjfk'
+        response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-        wrong_data['username'] = ''
-        response = self.client.post(self.url, wrong_data)
+        self.data['username'] = ''
+        response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)

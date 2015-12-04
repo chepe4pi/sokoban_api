@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d99fc024-22fa-4886-a2de-4ffebdba0af8" name="Default" comment="create auth_tests by factory boy">
+    <list default="true" id="d99fc024-22fa-4886-a2de-4ffebdba0af8" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sk_core/factories.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_auth/tests/factories.py" afterPath="$PROJECT_DIR$/sk_auth/tests/factories.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_auth/tests/tests.py" afterPath="$PROJECT_DIR$/sk_auth/tests/tests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_core/permissions.py" afterPath="$PROJECT_DIR$/sk_core/permissions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_core/tests.py" afterPath="$PROJECT_DIR$/sk_core/tests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/api/map.py" afterPath="$PROJECT_DIR$/sk_map/api/map.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/filters/backends.py" afterPath="$PROJECT_DIR$/sk_map/filters/backends.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/models.py" afterPath="$PROJECT_DIR$/sk_map/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/serializers/map.py" afterPath="$PROJECT_DIR$/sk_map/serializers/map.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/tests/factories.py" afterPath="$PROJECT_DIR$/sk_map/tests/factories.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/tests/tests.py" afterPath="$PROJECT_DIR$/sk_map/tests/tests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sokoban/urls.py" afterPath="$PROJECT_DIR$/sokoban/urls.py" />
     </list>
     <ignored path="sokoban_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,20 +28,37 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests_ResponsesTestCase.coverage" NAME="Test: sk_auth.tests.tests.ResponsesTestCase Coverage Results" MODIFIED="1448896223427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_MapTestCase.coverage" NAME="Test: sk_map.tests.tests.MapTestCase Coverage Results" MODIFIED="1449168480492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_MapTestCase.coverage" NAME="Test: sk_map.tests.tests.MapTestCase Coverage Results" MODIFIED="1449253403010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_MenTestCase.coverage" NAME="Test: sk_map.tests.tests.MenTestCase Coverage Results" MODIFIED="1449245150287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_AuthTestCase.coverage" NAME="Test: sk_auth.tests.AuthTestCase Coverage Results" MODIFIED="1448902264493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests_AuthTestCase.coverage" NAME="Test: sk_auth.tests.tests.AuthTestCase Coverage Results" MODIFIED="1448901238599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/sokoban_api$tests.coverage" NAME="tests Coverage Results" MODIFIED="1449166928850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/sokoban_api$Test__.coverage" NAME="Test:  Coverage Results" MODIFIED="1448895942466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests.coverage" NAME="Test: sk_map.tests.tests Coverage Results" MODIFIED="1449232957228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$tests.coverage" NAME="tests Coverage Results" MODIFIED="1449253972985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_MenTestCase_test_create_obj.coverage" NAME="Test: sk_map.tests.tests.MenTestCase.test_create_obj Coverage Results" MODIFIED="1449234312143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_AuthTestCase___keepdb.coverage" NAME="Test: sk_auth.tests.AuthTestCase --keepdb Coverage Results" MODIFIED="1448917897716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_LoginTestCase.coverage" NAME="Test: sk_map.tests.tests.LoginTestCase Coverage Results" MODIFIED="1449166821980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_MapCreateTestCase.coverage" NAME="Test: sk_map.tests.tests.MapCreateTestCase Coverage Results" MODIFIED="1449252972096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$map.coverage" NAME="map Coverage Results" MODIFIED="1448616421795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sk_map/api" />
-    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests_ResponsesTestCase_create_user.coverage" NAME="Test: sk_auth.tests.tests.ResponsesTestCase.create_user Coverage Results" MODIFIED="1448899586320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_PointTestCase_test_create_obj.coverage" NAME="Test: sk_map.tests.tests.PointTestCase.test_create_obj Coverage Results" MODIFIED="1449235381599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_BoxTestCase.coverage" NAME="Test: sk_map.tests.tests.BoxTestCase Coverage Results" MODIFIED="1449252721203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth.coverage" NAME="Test: sk_auth Coverage Results" MODIFIED="1448895845445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests_AuthTestCase_create_user.coverage" NAME="Test: sk_auth.tests.tests.AuthTestCase.create_user Coverage Results" MODIFIED="1448900819170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_AuthTestCase_create_user.coverage" NAME="Test: sk_auth.tests.AuthTestCase.create_user Coverage Results" MODIFIED="1448901884061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Unittests_in_tests__1_.coverage" NAME="Unittests in tests (1) Coverage Results" MODIFIED="1449251665544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sk_map/tests" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests_ResponsesTestCase_cret.coverage" NAME="Test: sk_auth.tests.tests.ResponsesTestCase.cret Coverage Results" MODIFIED="1448896239728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests_RegTestCase_test_create_user.coverage" NAME="Test: sk_auth.tests.tests.RegTestCase.test_create_user Coverage Results" MODIFIED="1449224948140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_WallCreateTestCase.coverage" NAME="Test: sk_map.tests.tests.WallCreateTestCase Coverage Results" MODIFIED="1449252694360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Unittests_in_tests.coverage" NAME="Unittests in tests Coverage Results" MODIFIED="1449251671725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sk_map/tests" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_PointCreateTestCase.coverage" NAME="Test: sk_map.tests.tests.PointCreateTestCase Coverage Results" MODIFIED="1449252765796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Unittest_TestCaseWithAuth_test_deny_obj.coverage" NAME="Unittest TestCaseWithAuth.test_deny_obj Coverage Results" MODIFIED="1449241190097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sk_core" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_PointTestCase.coverage" NAME="Test: sk_map.tests.tests.PointTestCase Coverage Results" MODIFIED="1449252769902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests_ResponsesTestCase.coverage" NAME="Test: sk_auth.tests.tests.ResponsesTestCase Coverage Results" MODIFIED="1448896223427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_BoxCreateTestCase.coverage" NAME="Test: sk_map.tests.tests.BoxCreateTestCase Coverage Results" MODIFIED="1449252718287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests_AuthTestCase.coverage" NAME="Test: sk_auth.tests.tests.AuthTestCase Coverage Results" MODIFIED="1448901238599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__.coverage" NAME="Test:  Coverage Results" MODIFIED="1448895942466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_LoginTestCase.coverage" NAME="Test: sk_map.tests.tests.LoginTestCase Coverage Results" MODIFIED="1449166821980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_MenTestCase_test_uniq_on_map.coverage" NAME="Test: sk_map.tests.tests.MenTestCase.test_uniq_on_map Coverage Results" MODIFIED="1449236314553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests_ResponsesTestCase_create_user.coverage" NAME="Test: sk_auth.tests.tests.ResponsesTestCase.create_user Coverage Results" MODIFIED="1448899586320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_MapWallTestCase.coverage" NAME="Test: sk_map.tests.tests.MapWallTestCase Coverage Results" MODIFIED="1449230997461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_AuthTestCase_create_user.coverage" NAME="Test: sk_auth.tests.AuthTestCase.create_user Coverage Results" MODIFIED="1448901884061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_WallTestCase.coverage" NAME="Test: sk_map.tests.tests.WallTestCase Coverage Results" MODIFIED="1449252686135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests.coverage" NAME="Test: sk_auth.tests.tests Coverage Results" MODIFIED="1448896175858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests.coverage" NAME="Test: sk_auth.tests Coverage Results" MODIFIED="1448896164968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
@@ -71,23 +97,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="map.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sk_map/api/map.py">
+      <file leaf-file-name="permissions.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sk_core/permissions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+              <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sk_auth/api/auth.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sokoban/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,52 +123,10 @@
         <entry file="file://$PROJECT_DIR$/sk_auth/tests/factories.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sk_map/serializers/map.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sk_map/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sk_auth/tests/tests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sokoban/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="44" column="7" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -151,19 +135,31 @@
         <entry file="file://$PROJECT_DIR$/sk_map/tests/tests.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+              <caret line="143" column="49" selection-start-line="143" selection-start-column="49" selection-end-line="143" selection-end-column="49" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#33#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="factories.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sk_core/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6020833">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="factories.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sk_map/tests/factories.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3824131">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state vertical-scroll-proportion="-13.4827585">
+              <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -171,11 +167,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sk_auth/serializers/users.py">
+      <file leaf-file-name="tests.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sk_auth/tests/tests.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -203,7 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/sk_users/models.py" />
         <option value="$PROJECT_DIR$/sk_auth/serializers/user.py" />
         <option value="$PROJECT_DIR$/requirements.txt.py" />
         <option value="$PROJECT_DIR$/sk_auth/serializers/auth.py" />
@@ -222,13 +217,11 @@
         <option value="$PROJECT_DIR$/sk_map/filters.py" />
         <option value="$USER_HOME$/sokoban_python_35_env/Lib/site-packages/rest_framework/viewsets.py" />
         <option value="$PROJECT_DIR$/sk_map/filters/filters.py" />
-        <option value="$PROJECT_DIR$/sk_map/filters/backends.py" />
         <option value="$PROJECT_DIR$/sk_core/models.py" />
         <option value="dbtable:/d57a0b98/6aec92b7-5c97-4d2c-b0cd-a516d5985892/sk_map_box" />
         <option value="$PROJECT_DIR$/sk_map/signals/__init__.py" />
         <option value="$PROJECT_DIR$/sk_map/signals/map_change.py" />
         <option value="$PROJECT_DIR$/sk_map/__init__.py" />
-        <option value="$PROJECT_DIR$/sk_map/api/map.py" />
         <option value="$PROJECT_DIR$/sk_core/migrations/signals/signals.py" />
         <option value="$PROJECT_DIR$/sk_core/migrations/signals/get_model_arrrs_by_parent.py" />
         <option value="$USER_HOME$/sokoban_python_35_env/Lib/site-packages/django/dispatch/dispatcher.py" />
@@ -238,22 +231,25 @@
         <option value="$PROJECT_DIR$/sk_map/signals.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/sokoban/settings.py" />
-        <option value="$PROJECT_DIR$/sk_core/factories.py" />
         <option value="$PROJECT_DIR$/sk_auth/tests/test_fields.py" />
         <option value="$PROJECT_DIR$/sk_auth/tests/fields.py" />
-        <option value="$PROJECT_DIR$/sk_auth/tests/tests.py" />
         <option value="$PROJECT_DIR$/sk_auth/tests.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/sk_core/permissions.py" />
-        <option value="$PROJECT_DIR$/sokoban/urls.py" />
         <option value="$PROJECT_DIR$/sk_core/fields.py" />
         <option value="$PROJECT_DIR$/sk_auth/serializers/users.py" />
         <option value="$PROJECT_DIR$/sk_auth/api/auth.py" />
+        <option value="$PROJECT_DIR$/sk_map/filters/backends.py" />
+        <option value="$PROJECT_DIR$/sk_auth/tests/tests.py" />
         <option value="$PROJECT_DIR$/sk_map/models.py" />
+        <option value="$PROJECT_DIR$/sk_core/permissions.py" />
+        <option value="$PROJECT_DIR$/sk_map/api/map.py" />
         <option value="$PROJECT_DIR$/sk_map/serializers/map.py" />
+        <option value="$PROJECT_DIR$/sokoban/urls.py" />
+        <option value="$PROJECT_DIR$/sk_core/factories.py" />
         <option value="$PROJECT_DIR$/sk_auth/tests/factories.py" />
-        <option value="$PROJECT_DIR$/sk_map/tests/tests.py" />
         <option value="$PROJECT_DIR$/sk_map/tests/factories.py" />
+        <option value="$PROJECT_DIR$/sk_map/tests/tests.py" />
+        <option value="$PROJECT_DIR$/sk_core/tests.py" />
       </list>
     </option>
   </component>
@@ -263,10 +259,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="1612" />
-    <option name="height" value="876" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -369,6 +364,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="sk_core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sokoban_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sokoban_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="sk_auth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -388,6 +397,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sokoban_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sokoban_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sk_auth" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -418,26 +445,8 @@
       <recent name="C:\Users\iamlexa\PycharmProjects\sokoban_api\sk_core\migrations\signals" />
     </key>
   </component>
-  <component name="RunManager" selected="Django tests.Test: sk_map.tests.tests.MapTestCase">
-    <configuration default="false" name="map" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sk_map/api" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="sokoban" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sk_map/api/map.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Test: sk_map.tests.tests.LoginTestCase" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
+  <component name="RunManager" selected="Django tests.tests">
+    <configuration default="false" name="Test: sk_map.tests.tests.BoxTestCase" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -450,7 +459,47 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="sokoban" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="TARGET" value="sk_map.tests.tests.LoginTestCase" />
+      <option name="TARGET" value="sk_map.tests.tests.BoxTestCase" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="true" />
+      <option name="OPTIONS" value="--keepdb" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Test: sk_map.tests.tests.PointCreateTestCase" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\iamlexa\sokoban_venv_34\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="sokoban" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="sk_map.tests.tests.PointCreateTestCase" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="true" />
+      <option name="OPTIONS" value="--keepdb" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Test: sk_map.tests.tests.PointTestCase" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\iamlexa\sokoban_venv_34\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="sokoban" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="sk_map.tests.tests.PointTestCase" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="true" />
@@ -471,6 +520,26 @@
       <module name="sokoban" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="TARGET" value="sk_map.tests.tests.MapTestCase" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="true" />
+      <option name="OPTIONS" value="--keepdb" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Test: sk_map.tests.tests.MapCreateTestCase" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\iamlexa\sokoban_venv_34\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="sokoban" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="sk_map.tests.tests.MapCreateTestCase" />
       <option name="SETTINGS_FILE" value="" />
       <option name="CUSTOM_SETTINGS" value="false" />
       <option name="USE_OPTIONS" value="true" />
@@ -738,18 +807,22 @@
       <option name="OPTIONS" value="--keepdb" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Django server.Sokoban" />
       <item index="1" class="java.lang.String" itemvalue="Django tests.tests" />
-      <item index="2" class="java.lang.String" itemvalue="Python.map" />
-      <item index="3" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.LoginTestCase" />
-      <item index="4" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.MapTestCase" />
+      <item index="2" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.BoxTestCase" />
+      <item index="3" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.PointCreateTestCase" />
+      <item index="4" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.PointTestCase" />
+      <item index="5" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.MapTestCase" />
+      <item index="6" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.MapCreateTestCase" />
     </list>
     <recent_temporary>
-      <list size="3">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.MapTestCase" />
-        <item index="1" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.LoginTestCase" />
-        <item index="2" class="java.lang.String" itemvalue="Python.map" />
+        <item index="1" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.MapCreateTestCase" />
+        <item index="2" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.PointTestCase" />
+        <item index="3" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.PointCreateTestCase" />
+        <item index="4" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.BoxTestCase" />
       </list>
     </recent_temporary>
   </component>
@@ -920,39 +993,45 @@
       <option name="project" value="LOCAL" />
       <updated>1449164095436</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="develop map tests">
+      <created>1449168643605</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1449168643605</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.03 at 21h 29m 05s.xml">
+    <history-entry file="Test__sk_map_tests_tests_BoxTestCase - 2015.12.04 at 21h 12m 02s.xml">
+      <configuration name="Test: sk_map.tests.tests.BoxTestCase" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__sk_map_tests_tests_MapCreateTestCase - 2015.12.04 at 21h 16m 13s.xml">
+      <configuration name="Test: sk_map.tests.tests.MapCreateTestCase" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.04 at 21h 15m 56s.xml">
       <configuration name="Test: sk_map.tests.tests.MapTestCase" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.03 at 21h 29m 08s.xml">
+    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.04 at 21h 23m 24s.xml">
       <configuration name="Test: sk_map.tests.tests.MapTestCase" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.03 at 21h 29m 12s.xml">
-      <configuration name="Test: sk_map.tests.tests.MapTestCase" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__sk_map_tests_tests_PointCreateTestCase - 2015.12.04 at 21h 12m 47s.xml">
+      <configuration name="Test: sk_map.tests.tests.PointCreateTestCase" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.03 at 21h 30m 49s.xml">
-      <configuration name="Test: sk_map.tests.tests.MapTestCase" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="Test__sk_map_tests_tests_PointTestCase - 2015.12.04 at 21h 12m 51s.xml">
+      <configuration name="Test: sk_map.tests.tests.PointTestCase" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.03 at 21h 31m 01s.xml">
-      <configuration name="Test: sk_map.tests.tests.MapTestCase" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="tests - 2015.12.04 at 21h 14m 48s.xml">
+      <configuration name="tests" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.03 at 21h 31m 05s.xml">
-      <configuration name="Test: sk_map.tests.tests.MapTestCase" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="tests - 2015.12.04 at 21h 16m 31s.xml">
+      <configuration name="tests" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.03 at 21h 34m 40s.xml">
-      <configuration name="Test: sk_map.tests.tests.MapTestCase" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="tests - 2015.12.04 at 21h 24m 30s.xml">
+      <configuration name="tests" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
-    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.03 at 21h 35m 42s.xml">
-      <configuration name="Test: sk_map.tests.tests.MapTestCase" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.03 at 21h 38m 01s.xml">
-      <configuration name="Test: sk_map.tests.tests.MapTestCase" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__sk_map_tests_tests_MapTestCase - 2015.12.03 at 21h 48m 01s.xml">
-      <configuration name="Test: sk_map.tests.tests.MapTestCase" configurationId="DjangoTestsConfigurationType" />
+    <history-entry file="tests - 2015.12.04 at 21h 32m 56s.xml">
+      <configuration name="tests" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
   </component>
   <component name="TodoView" selected-index="4">
@@ -965,31 +1044,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="0" width="1612" height="867" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32966322" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21713917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="manage.py@sokoban" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33378747" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32506528" sideWeight="0.50375" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17976804" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3243607" sideWeight="0.49625" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839838" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30417228" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30790192" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292517" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32966322" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21713917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17976804" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.4974093" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3994778" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="manage.py@sokoban" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33512786" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34829932" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839838" sideWeight="0.4974093" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1006,7 +1085,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="create develop" />
     <MESSAGE value="add core app and map app" />
     <MESSAGE value="prepare empty apps" />
     <MESSAGE value="develop Map model" />
@@ -1031,7 +1109,8 @@
     <MESSAGE value="create  register test" />
     <MESSAGE value="create auth_tests by factory boy" />
     <MESSAGE value="add size for map" />
-    <option name="LAST_COMMIT_MESSAGE" value="add size for map" />
+    <MESSAGE value="develop map tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="develop map tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1048,44 +1127,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sk_core/serializer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sk_core/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sk_core/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sk_core/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sk_map/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sk_map/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1160,13 +1201,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="74" column="6" selection-start-line="74" selection-start-column="6" selection-end-line="74" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sk_core/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1305,39 +1339,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sk_map/filters/backends.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sk_map/filters/filters.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sk_core/permissions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="69" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sk_core/factories.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sokoban/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1346,17 +1352,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sk_auth/api/auth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1369,18 +1365,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sk_map/api/map.py">
+    <entry file="file://$USER_HOME$/sokoban_venv_34/Lib/site-packages/django/db/models/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        <state vertical-scroll-proportion="-5.206897">
+          <caret line="447" column="8" selection-start-line="447" selection-start-column="8" selection-end-line="447" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sk_map/serializers/map.py">
+    <entry file="file://$USER_HOME$/sokoban_venv_34/Lib/site-packages/factory/declarations.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <caret line="541" column="35" selection-start-line="541" selection-start-column="35" selection-end-line="541" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/sokoban_venv_34/Lib/site-packages/factory/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="640" column="8" selection-start-line="640" selection-start-column="8" selection-end-line="640" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/sokoban_venv_34/Lib/site-packages/rest_framework/filters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="6" selection-start-line="74" selection-start-column="6" selection-end-line="74" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sk_map/filters/backends.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1449226093609" expanded="true" signature="133:448" placeholder="..." />
+            <marker date="1449226093609" expanded="true" signature="267:448" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sk_core/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1388,7 +1419,75 @@
     <entry file="file://$PROJECT_DIR$/sk_map/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#28#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sk_map/api/map.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sk_map/serializers/map.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67291665">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sk_auth/api/auth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38958332">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm50/system/python_stubs/1401229748/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="694" column="6" selection-start-line="694" selection-start-column="6" selection-end-line="694" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sk_auth/tests/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sokoban/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sk_core/permissions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1396,19 +1495,19 @@
     <entry file="file://$PROJECT_DIR$/sk_auth/tests/factories.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sk_auth/tests/tests.py">
+    <entry file="file://$PROJECT_DIR$/sk_map/tests/factories.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        <state vertical-scroll-proportion="-13.4827585">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1416,19 +1515,19 @@
     <entry file="file://$PROJECT_DIR$/sk_map/tests/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+          <caret line="143" column="49" selection-start-line="143" selection-start-column="49" selection-end-line="143" selection-end-column="49" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sk_map/tests/factories.py">
+    <entry file="file://$PROJECT_DIR$/sk_core/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3824131">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.6020833">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
