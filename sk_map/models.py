@@ -4,8 +4,6 @@ from sk_core.models import AccessibleModel, TimestampableModel
 
 class Map(AccessibleModel, TimestampableModel):
     title = models.CharField(max_length=255)
-    x_size = models.PositiveSmallIntegerField()
-    y_size = models.PositiveSmallIntegerField()
 
 
 class MapLocation(AccessibleModel, TimestampableModel):
@@ -15,7 +13,6 @@ class MapLocation(AccessibleModel, TimestampableModel):
 
     class Meta:
         abstract = True
-        app_label = 'sk_map' # TODO add app label
 
 
 class OnMap(MapLocation):
@@ -23,6 +20,7 @@ class OnMap(MapLocation):
 
     class Meta:
         abstract = True
+        unique_together = ("x", "y", "map")
 
 
 class OnMapUniq(MapLocation):

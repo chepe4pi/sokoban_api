@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d99fc024-22fa-4886-a2de-4ffebdba0af8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_core/permissions.py" afterPath="$PROJECT_DIR$/sk_core/permissions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/api/map.py" afterPath="$PROJECT_DIR$/sk_map/api/map.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/filters/backends.py" afterPath="$PROJECT_DIR$/sk_map/filters/backends.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/models.py" afterPath="$PROJECT_DIR$/sk_map/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/serializers/map.py" afterPath="$PROJECT_DIR$/sk_map/serializers/map.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sokoban/urls.py" afterPath="$PROJECT_DIR$/sokoban/urls.py" />
     </list>
     <ignored path="sokoban_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -430,7 +426,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -1002,7 +998,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449254122087</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="create map tests">
+      <created>1449254200473</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1449254200473</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
