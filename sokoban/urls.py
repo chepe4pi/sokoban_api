@@ -1,13 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
-from sk_map.api.map import MapsViewSet, MapDetailViewSet, WallViewSet, BoxViewSet, PointViewSet, MenViewSet
+from sk_map.api.map import MapsViewSet, WallViewSet, BoxViewSet, PointViewSet, MenViewSet
 from sk_auth.api.auth import RegisterView, LoginAPIView
 
 
 router = DefaultRouter()
 router.register(r'maps', MapsViewSet)
-router.register(r'map_details', MapDetailViewSet)
 router.register(r'wall', WallViewSet)
 router.register(r'box', BoxViewSet)
 router.register(r'point', PointViewSet)

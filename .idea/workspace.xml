@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d99fc024-22fa-4886-a2de-4ffebdba0af8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sk_core/factories.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_auth/tests/factories.py" afterPath="$PROJECT_DIR$/sk_auth/tests/factories.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_auth/tests/tests.py" afterPath="$PROJECT_DIR$/sk_auth/tests/tests.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_core/permissions.py" afterPath="$PROJECT_DIR$/sk_core/permissions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_core/tests.py" afterPath="$PROJECT_DIR$/sk_core/tests.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/api/map.py" afterPath="$PROJECT_DIR$/sk_map/api/map.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/filters/backends.py" afterPath="$PROJECT_DIR$/sk_map/filters/backends.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/models.py" afterPath="$PROJECT_DIR$/sk_map/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/serializers/map.py" afterPath="$PROJECT_DIR$/sk_map/serializers/map.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/tests/factories.py" afterPath="$PROJECT_DIR$/sk_map/tests/factories.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sk_map/tests/tests.py" afterPath="$PROJECT_DIR$/sk_map/tests/tests.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sokoban/urls.py" afterPath="$PROJECT_DIR$/sokoban/urls.py" />
     </list>
     <ignored path="sokoban_api.iws" />
@@ -195,6 +189,9 @@
         <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
+    <push-targets>
+      <push-target-info repo="$PROJECT_DIR$" source="map_tests_031215" target-remote="origin" target-branch="map_tests" />
+    </push-targets>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -999,7 +996,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449168643605</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="create map tests">
+      <created>1449254122087</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1449254122087</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1085,7 +1088,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="add core app and map app" />
     <MESSAGE value="prepare empty apps" />
     <MESSAGE value="develop Map model" />
     <MESSAGE value="create interface fore CRUD Map objects by GenericApiViews" />
@@ -1110,7 +1112,8 @@
     <MESSAGE value="create auth_tests by factory boy" />
     <MESSAGE value="add size for map" />
     <MESSAGE value="develop map tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="develop map tests" />
+    <MESSAGE value="create map tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="create map tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

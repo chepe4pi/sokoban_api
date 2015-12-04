@@ -10,7 +10,7 @@ class IsOwnerOrReadOnlyIfPublic(permissions.BasePermission):
             obj.owner == request.user
         )
 
-
+# TODO remove if unused
 class ReadOnly(permissions.BasePermission):
     message = 'Read only View.'
 
