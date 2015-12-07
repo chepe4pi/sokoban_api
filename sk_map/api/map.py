@@ -1,7 +1,7 @@
 from ..filters.filters import WallFilterSet, BoxFilterSet, PointFilterSet, MenFilterSet, MapFilterSet
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from sk_core.permissions import IsOwnerOrReadOnlyIfPublic
-from sk_core.views import BaseModelViewSet
+from sk_core.views import BaseModelViewSet, PartialUpdateMixin
 from ..models import Map, Wall, Box, Point, Men
 from ..serializers.map import MapSerializer, WallSerializer, BoxSerializer, PointSerializer, MenSerializer
 from ..filters.backends import IsPublicFilterBackend
@@ -19,7 +19,7 @@ class MapObjectsBaseViewSet(BaseModelViewSet):
         abstract = True
 
 
-class MapsViewSet(MapObjectsBaseViewSet):
+class MapsViewSet(MapObjectsBaseViewSet, PartialUpdateMixin):
     """
     A View for CRUD Map-object.
     """
