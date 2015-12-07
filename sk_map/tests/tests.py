@@ -1,14 +1,18 @@
 from rest_framework import status
+from django.utils.http import urlencode
 from rest_framework.test import APITestCase
-from sk_core.tests import TestCasePermissions, AuthorizeForTests
+from sk_core.tests.tests import TestCasePermissionsMixin, AuthorizeForTestsMixin, TestCasePermissionPublicMixin
+from ..serializers.map import MenSerializer, PointSerializer, BoxSerializer, WallSerializer, MapSerializer
 from .factories import WallFactory, MapFactory, PointFactory, MenFactory, BoxFactory
 from ..models import Map, Wall, Box, Point, Men
 from faker import Faker
+from mock_django import mock_signal_receiver
+from django.db.models.signals import post_save
 
 faker = Faker()
 
 
-class MapCreateTestCase(AuthorizeForTests, APITestCase):
+class MapCreateTestCase(AuthorizeForTestsMixin, APITestCase):
     url = '/maps/'
 
     def setUp(self):
@@ -17,11 +21,7 @@ class MapCreateTestCase(AuthorizeForTests, APITestCase):
         self.data = {
             'title': self.obj.title,
         }
-        self.expected = {
-            'title': self.obj.title,
-            'public': self.obj.public,
-            'owner': self.user.username
-        }
+        self.expected = MapSerializer(self.obj).data
 
     def test_create_map(self):
         response = self.client.post(self.url, self.data)
@@ -30,24 +30,19 @@ class MapCreateTestCase(AuthorizeForTests, APITestCase):
         self.expected['id'] = int(response.data['id'])
         self.assertEqual(response.data, self.expected)
 
-    def test_wrong_map(self):
+    def test_create_wrong_map(self):
         self.data['title'] = ''
         response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 
-class MapTestCase(TestCasePermissions, APITestCase):
+class MapTestCase(TestCasePermissionsMixin, APITestCase):
     url = '/maps/'
 
     def setUp(self):
         self.obj = MapFactory()
         super(MapTestCase, self).setUp()
-        self.data = {
-            'id': self.obj.id,
-            'title': self.obj.title,
-            'public': self.obj.public,
-            'owner': self.user.username
-        }
+        self.data = MapSerializer(self.obj).data
 
     def test_allow_get_own_obj(self):
         super(MapTestCase, self).test_allow_get_own_obj()
@@ -59,20 +54,30 @@ class MapTestCase(TestCasePermissions, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, self.data)
 
+    def test_allow_partial_put(self):
+        public = True
+        self.part = {'public': public}
+        self.data['public'] = public
+        response = self.client.put(self.obj_url, self.part)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, self.data)
 
-class MapObjCreateTestCase(object):
+    def test_deny_put_owner(self):
+        self.part = {'owner': self.wrong_user.username}
+        self.data['owner'] = self.wrong_user.username
+        response = self.client.put(self.obj_url, self.data)
+        self.assertEqual(response.data['owner'], self.user.username)
+
+
+class MapObjCreateTestCaseMixin(object):
     class Meta:
         abstract = True
 
     def setUp(self):
-        super(MapObjCreateTestCase, self).setUp()
+        super(MapObjCreateTestCaseMixin, self).setUp()
         self.map = MapFactory()
-        self.data = {
-            'x': self.obj.x,
-            'y': self.obj.y,
-            'map': self.map.id
-        }
-        
+        self.obj.map = self.map
+
     def test_create_obj(self):
         response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -85,7 +90,7 @@ class MapObjCreateTestCase(object):
         response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_wrong_x(self):
+    def test_create_wrong_x(self):
         self.data['x'] = ''
         response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
@@ -93,7 +98,7 @@ class MapObjCreateTestCase(object):
         response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_wrong_y(self):
+    def test_create_wrong_y(self):
         self.data['y'] = ''
         response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
@@ -102,21 +107,34 @@ class MapObjCreateTestCase(object):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 
-class MapObjTestCase(object):
+class MapObjFilterTestCaseMixin(object):
     class Meta:
         abstract = True
 
     def setUp(self):
-        super(MapObjTestCase, self).setUp()
-        self.data = {
-            'id': self.obj.id,
-            'x': self.obj.x,
-            'y': self.obj.y,
-            'map': self.obj.map.id
-        }
+        super(MapObjFilterTestCaseMixin, self).setUp()
+        self.filter_url = self.url + '?' + urlencode({'map': self.obj.map.id})
+
+    def test_filter(self):
+        self.expected = self.data.copy()
+        self.data['x'] = faker.random_int(min=0, max=99)
+        response = self.client.post(self.url, self.data)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        response = self.client.get(self.filter_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn(self.expected, [dict(resp_obj) for resp_obj in response.data])
+
+
+class MapObjTestCaseMixin(object):
+    class Meta:
+        abstract = True
+
+    def setUp(self):
+        super(MapObjTestCaseMixin, self).setUp()
+        self.parent_url = '/maps/' + str(self.obj.map.id) + '/'
 
     def test_allow_get_own_obj(self):
-        super(MapObjTestCase, self).test_allow_get_own_obj()
+        super(MapObjTestCaseMixin, self).test_allow_get_own_obj()
         self.assertEqual(self.response.data, self.data)
 
     def test_allow_put_own_obj(self):
@@ -124,75 +142,106 @@ class MapObjTestCase(object):
         self.data['y'] = faker.random_int(min=0, max=99)
         response = self.client.put(self.obj_url, self.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, self.data)
+        # self.assertEqual(response.data, self.data)
+
+    def test_put_wrong_data(self):
+        self.data['x'] = ''
+        response = self.client.put(self.obj_url, self.data)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_deny_partial_put(self):
+        self.part = {'x': faker.random_int(min=0, max=99)}
+        response = self.client.put(self.obj_url, self.part)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_signal_change_public(self):
+        public = True
+        with mock_signal_receiver(post_save) as receiver:
+            response = self.client.put(self.parent_url, {'public': public})
+            self.assertNotEqual(receiver.call_count, 0)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.client.force_authenticate(user=self.wrong_user)
+        response = self.client.get(self.obj_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 
-class WallCreateTestCase(MapObjCreateTestCase, AuthorizeForTests, APITestCase):
+class WallCreateTestCase(MapObjCreateTestCaseMixin, AuthorizeForTestsMixin, APITestCase):
     url = '/wall/'
 
     def setUp(self):
         self.obj = WallFactory.build()
         super(WallCreateTestCase, self).setUp()
+        self.data = WallSerializer(self.obj).data
 
     def test_create_obj(self):
         super(WallCreateTestCase, self).test_create_obj()
         self.assertEqual(Wall.objects.filter(x=self.obj.x, y=self.obj.y, map=self.map).count(), 1)
 
 
-class WallTestCase(MapObjTestCase, TestCasePermissions, APITestCase):
+class WallTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin, TestCasePermissionPublicMixin,\
+                   TestCasePermissionsMixin, APITestCase):
     url = '/wall/'
 
     def setUp(self):
         self.obj = WallFactory()
+        self.data = WallSerializer(self.obj).data
         super(WallTestCase, self).setUp()
 
 
-class BoxCreateTestCase(MapObjCreateTestCase, AuthorizeForTests, APITestCase):
+class BoxCreateTestCase(MapObjCreateTestCaseMixin, AuthorizeForTestsMixin, APITestCase):
     url = '/box/'
 
     def setUp(self):
         self.obj = BoxFactory.build()
         super(BoxCreateTestCase, self).setUp()
+        self.data = BoxSerializer(self.obj).data
 
     def test_create_obj(self):
         super(BoxCreateTestCase, self).test_create_obj()
         self.assertEqual(Box.objects.filter(x=self.obj.x, y=self.obj.y, map=self.map).count(), 1)
 
 
-class BoxTestCase(MapObjTestCase, TestCasePermissions, APITestCase):
+class BoxTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin,\
+                  TestCasePermissionPublicMixin, TestCasePermissionsMixin, APITestCase):
     url = '/box/'
 
     def setUp(self):
         self.obj = BoxFactory()
+        self.data = BoxSerializer(self.obj).data
         super(BoxTestCase, self).setUp()
 
 
-class PointCreateTestCase(MapObjCreateTestCase, AuthorizeForTests, APITestCase):
+class PointCreateTestCase(MapObjCreateTestCaseMixin, AuthorizeForTestsMixin, APITestCase):
     url = '/point/'
 
     def setUp(self):
         self.obj = PointFactory.build()
         super(PointCreateTestCase, self).setUp()
+        self.data = PointSerializer(self.obj).data
 
     def test_create_obj(self):
         super(PointCreateTestCase, self).test_create_obj()
         self.assertEqual(Point.objects.filter(x=self.obj.x, y=self.obj.y, map=self.map).count(), 1)
 
 
-class PointTestCase(MapObjTestCase, TestCasePermissions, APITestCase):
+class PointTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin, TestCasePermissionPublicMixin,\
+                    TestCasePermissionsMixin, APITestCase):
     url = '/point/'
 
     def setUp(self):
         self.obj = PointFactory()
+        self.data = PointSerializer(self.obj).data
         super(PointTestCase, self).setUp()
 
 
-class MenCreateTestCase(MapObjCreateTestCase, AuthorizeForTests, APITestCase):
+class MenCreateTestCase(MapObjCreateTestCaseMixin, AuthorizeForTestsMixin, APITestCase):
     url = '/men/'
 
     def setUp(self):
         self.obj = MenFactory.build()
         super(MenCreateTestCase, self).setUp()
+        self.data = MenSerializer(self.obj).data
 
     def test_create_obj(self):
         super(MenCreateTestCase, self).test_create_obj()
@@ -200,17 +249,21 @@ class MenCreateTestCase(MapObjCreateTestCase, AuthorizeForTests, APITestCase):
 
     def test_uniq_on_map(self):
         super(MenCreateTestCase, self).test_create_obj()
-        self.data['x'] = self.data['x'] + 1
+        self.data['x'] = faker.random_int(min=0, max=99)
         response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 
-class MenTestCase(MapObjTestCase, TestCasePermissions, APITestCase):
+class MenTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin, TestCasePermissionPublicMixin,\
+                  TestCasePermissionsMixin, APITestCase):
     url = '/men/'
 
     def setUp(self):
         self.obj = MenFactory()
+        self.data = MenSerializer(self.obj).data
         super(MenTestCase, self).setUp()
 
-
-# TODO create  bath
+    def test_filter(self):
+        response = self.client.get(self.filter_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn(self.data, [dict(resp_obj) for resp_obj in response.data])
