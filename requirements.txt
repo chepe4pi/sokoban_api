@@ -6,4 +6,5 @@ django-crispy-forms
 factory_boy
 fake-factory
 django-guardian
+mock-django
 # TODO dump packages with versions
