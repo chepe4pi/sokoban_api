@@ -2,28 +2,28 @@ from sk_core.serializer import BaseModelSerializer
 from ..models import Wall, Box, Point, Men, Map
 
 
-class MapObjectSerializer(BaseModelSerializer):
+class MapObjectSerializerMixin(BaseModelSerializer):
     class Meta:
         fields = ('id', 'x', 'y', 'map')
 
 
-class WallSerializer(MapObjectSerializer):
-    class Meta(MapObjectSerializer.Meta):
+class WallSerializer(MapObjectSerializerMixin):
+    class Meta(MapObjectSerializerMixin.Meta):
         model = Wall
 
 
-class BoxSerializer(MapObjectSerializer):
-    class Meta(MapObjectSerializer.Meta):
+class BoxSerializer(MapObjectSerializerMixin):
+    class Meta(MapObjectSerializerMixin.Meta):
         model = Box
 
 
-class PointSerializer(MapObjectSerializer):
-    class Meta(MapObjectSerializer.Meta):
+class PointSerializer(MapObjectSerializerMixin):
+    class Meta(MapObjectSerializerMixin.Meta):
         model = Point
 
 
-class MenSerializer(MapObjectSerializer):
-    class Meta(MapObjectSerializer.Meta):
+class MenSerializer(MapObjectSerializerMixin):
+    class Meta(MapObjectSerializerMixin.Meta):
         model = Men
 
 
