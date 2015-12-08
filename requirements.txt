@@ -7,4 +7,5 @@ factory_boy
 fake-factory
 django-guardian
 mock-django
+coverage
 # TODO dump packages with versions
