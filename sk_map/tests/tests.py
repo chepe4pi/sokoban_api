@@ -56,17 +56,17 @@ class MapTestCase(TestCasePermissionsMixin, APITestCase):
 
     def test_allow_partial_put(self):
         public = True
-        self.part = {'public': public}
+        part = {'public': public}
         self.data['public'] = public
-        response = self.client.put(self.obj_url, self.part)
+        response = self.client.put(self.obj_url, part)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, self.data)
 
     def test_deny_put_owner(self):
-        self.part = {'owner': self.wrong_user.username}
+        part = {'owner': self.wrong_user.username}
         self.data['owner'] = self.wrong_user.username
-        response = self.client.put(self.obj_url, self.data)
-        self.assertEqual(response.data['owner'], self.user.username)
+        response = self.client.put(self.obj_url, part)
+        self.assertEqual(response.data['owner'], self.user.username) # TODO response code
 
 
 class MapObjCreateTestCaseMixin(object):
