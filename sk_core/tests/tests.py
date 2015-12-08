@@ -44,10 +44,17 @@ class TestCasePermissionPublicMixin(BasePermissionTestMixin):
 
 class TestCasePermissionsMixin(BasePermissionTestMixin):
 
-    def test_unauthorized(self):
+    def test_deny_post_unauthorized(self):
         self.client.logout()
         response = self.client.post(self.url, self.data)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_allow_get_unauthorized_if_public(self):
+        setattr(self.obj, 'public', True)
+        self.obj.save()
+        self.client.logout()
+        response = self.client.get(self.obj_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_deny_get_some_obj(self):
         self.client.force_authenticate(user=self.wrong_user)
