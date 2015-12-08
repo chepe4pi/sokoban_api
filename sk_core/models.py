@@ -1,7 +1,6 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 
-User = get_user_model()
 
 class TimestampableModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
