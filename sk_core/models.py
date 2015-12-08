@@ -10,9 +10,18 @@ class TimestampableModel(models.Model):
         abstract = True
 
 
-class AccessibleModel(models.Model):
-    public = models.BooleanField(default=False)
+class OwnableModel(models.Model):
     owner = models.ForeignKey(User)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return ' '.join([str(self.id), str(self.owner)]) # TODO More ellegant way
+
+
+class AccessibleModel(OwnableModel):
+    public = models.BooleanField(default=False)
 
     class Meta:
         abstract = True
