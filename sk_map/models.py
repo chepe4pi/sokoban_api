@@ -1,6 +1,7 @@
 from django.db import models
 from sk_core.models import AccessibleModel, TimestampableModel
 from django.contrib.auth.models import User
+from sk_skins.models import Skins
 
 
 class Map(AccessibleModel, TimestampableModel):
@@ -11,6 +12,7 @@ class Map(AccessibleModel, TimestampableModel):
         through_fields=('map', 'owner'),
         related_name='players'
     )
+    skin = models.ForeignKey(Skins, default=1)
 
 
 class MapLocation(AccessibleModel, TimestampableModel):
