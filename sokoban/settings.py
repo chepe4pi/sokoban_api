@@ -50,7 +50,7 @@ INSTALLED_APPS = (
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'sokoban_cache',
+        'LOCATION': 'cache',
     }
 }
 
