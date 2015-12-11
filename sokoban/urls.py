@@ -38,10 +38,6 @@ urlpatterns_admin = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 )
 
-urlpatterns_rest = patterns('',
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-                            )
-
 urlpatterns_auth = patterns('',
     url(r'^auth/login/', LoginAPIView.as_view(), name='login_view')
                             )
@@ -51,7 +47,6 @@ patterns_swagger = patterns('',
 )
 
 urlpatterns += urlpatterns_admin
-urlpatterns += urlpatterns_rest
 urlpatterns += urlpatterns_auth
 urlpatterns += patterns_swagger
 urlpatterns += urlpatterns_map_obj

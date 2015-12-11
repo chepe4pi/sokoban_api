@@ -23,7 +23,7 @@ class GameSerializer(BaseModelSerializer):
                                                               map=self.map, done=True).count() > 0:
             return value
         else:
-            raise ValidationError(_('First you have to took this map'))
+            raise ValidationError(_('First you have to took this map')) # TODO tests
 
     def validate_map(self, value):
         if Map.objects.filter(Q(public=True,
@@ -31,13 +31,13 @@ class GameSerializer(BaseModelSerializer):
                                                                  id=self.initial_data['map'])).count() > 0:
             return value
         else:
-            raise ValidationError(_('This Map is not allowed'))
+            raise ValidationError(_('This Map is not allowed')) # TODO tests
 
     def _get_map_obj(self):
         if 'map' not in self.initial_data:
             self.map = self.instance.map.id
         else:
-            self.map = self.initial_data['map']
+            self.map = self.initial_data['map'] # TODO tests
         return self.map
 
 
