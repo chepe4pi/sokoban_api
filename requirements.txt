@@ -9,3 +9,6 @@ django-guardian
 mock-django
 coverage
 # TODO dump packages with versions
+numpy
+django-rest-swagger
+pyyaml
