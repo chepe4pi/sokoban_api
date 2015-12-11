@@ -9,14 +9,3 @@ class IsOwnerOrReadOnlyIfPublic(permissions.BasePermission):
             request.method in permissions.SAFE_METHODS and obj.public or
             obj.owner == request.user
         )
-
-# TODO remove if unused
-class ReadOnly(permissions.BasePermission):
-    message = 'Read only View.'
-
-    def has_object_permission(self, request, view, obj):
-
-        return (
-            request.method in permissions.SAFE_METHODS and obj.public or
-            request.method in permissions.SAFE_METHODS and obj.owner == request.user
-        )
