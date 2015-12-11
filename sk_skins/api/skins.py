@@ -6,7 +6,7 @@ from ..models import Skins
 from ..filters.map import SkinFilterSet
 
 
-class SkinView(RetrieveModelMixin, ListModelMixin, GenericViewSet):
+class SkinView(ListModelMixin, GenericViewSet):
     """
     A View for retrieve images for Game levels
     """
