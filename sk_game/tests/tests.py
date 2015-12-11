@@ -11,7 +11,7 @@ faker = Faker()
 
 class GameTestCase(AuthorizeForTestsMixin, APITestCase):
     url = '/game/'
-    fixtures = ['test_admin_user.json', 'test_map1.json']
+    fixtures = ['test_admin_user.json', 'base_skins.json', 'test_map1.json']
 
     def setUp(self):
         super(GameTestCase, self).setUp()
