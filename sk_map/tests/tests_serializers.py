@@ -14,8 +14,7 @@ class MapTestCase(APITestCase):
             'id': self.obj.id,
             'title': self.obj.title,
             'owner': self.obj.owner.username,
-            'public': self.obj.public,
-            'skin': self.obj.skin.id
+            'public': self.obj.public
         }
 
     def test_serializer(self):

@@ -42,7 +42,7 @@ class MapSerializer(BaseModelSerializer):
 
     class Meta:
         model = Map
-        fields = ('id', 'title', 'owner', 'public', 'skin')
+        fields = ('id', 'title', 'owner', 'public')
 
 
 class LocationSerializer(BaseModelSerializer):
