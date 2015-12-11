@@ -3,7 +3,7 @@ from ..serializers.users import BaseAuthSerializer
 from .factories import UserFactory
 
 
-class MapSerializerTestCase(APITestCase):
+class AuthTestCase(APITestCase):
 
     def setUp(self):
         self.obj = UserFactory()

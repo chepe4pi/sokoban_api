@@ -3,7 +3,7 @@ from ..serializers.map import MapSerializer, BoxSerializer, WallSerializer, Poin
 from .factories import MapFactory, BoxFactory, WallFactory, PointFactory, MenFactory
 
 
-class MapSerializerTestCase(APITestCase):
+class MapTestCase(APITestCase):
 
     def setUp(self):
         self.obj = MapFactory()
