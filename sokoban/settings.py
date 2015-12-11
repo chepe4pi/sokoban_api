@@ -141,6 +141,6 @@ MEDIA_URL = '/img/'
 #     os.path.join(BASE_DIR, 'media'),
 # )
 
-# STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
