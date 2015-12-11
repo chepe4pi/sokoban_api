@@ -1,0 +1,50 @@
+[
+{
+    "model": "sk_skins.skins",
+    "pk": 1,
+    "fields": {
+        "owner": 1,
+        "box": "./Crate_Brown.png",
+        "point": "./EndPoint_Brown.png",
+        "men": "./Character4.png",
+        "wall": "./Wall_Brown.png",
+        "background": "./GroundGravel_Grass.png"
+    }
+},
+{
+    "model": "sk_skins.skins",
+    "pk": 2,
+    "fields": {
+        "owner": 1,
+        "box": "./Crate_Gray.png",
+        "point": "./EndPoint_Gray.png",
+        "men": "./Character4_RVmu4F7.png",
+        "wall": "./Wall_Black.png",
+        "background": "./GroundGravel_Dirt.png"
+    }
+},
+{
+    "model": "sk_skins.skins",
+    "pk": 3,
+    "fields": {
+        "owner": 1,
+        "box": "./Crate_Yellow.png",
+        "point": "./EndPoint_Yellow.png",
+        "men": "./Character4_geZk2Im.png",
+        "wall": "./Wall_Beige.png",
+        "background": "./GroundGravel_Sand.png"
+    }
+},
+{
+    "model": "sk_skins.skins",
+    "pk": 4,
+    "fields": {
+        "owner": 1,
+        "box": "./Crate_Red.png",
+        "point": "./EndPoint_Red.png",
+        "men": "./Character4_p7vrklg.png",
+        "wall": "./WallRound_Gray.png",
+        "background": "./GroundGravel_Concrete.png"
+    }
+}
+]
