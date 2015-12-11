@@ -43,8 +43,6 @@ class GameSolutionValidator(object):
                     if np.array_equal(step, box):
                         box = boxes.pop(box_index) + diff
                         boxes.append(box)
-                    if any((box == wall).all() for wall in walls):
-                        return
         covered = 0
         for point_index, point in enumerate(points):
             for box_index, box in enumerate(boxes):
