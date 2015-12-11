@@ -46,6 +46,13 @@ INSTALLED_APPS = (
     'sk_game',
 )
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'sokoban_cache',
+    }
+}
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -86,6 +93,13 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+}
+
+REST_FRAMEWORK_EXTENSIONS = {
+    'DEFAULT_OBJECT_CACHE_KEY_FUNC':
+        'rest_framework_extensions.utils.default_object_cache_key_func',
+    'DEFAULT_LIST_CACHE_KEY_FUNC':
+        'rest_framework_extensions.utils.default_list_cache_key_func',
 }
 
 AUTH_PASSWORD_VALIDATORS = [

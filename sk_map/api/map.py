@@ -6,9 +6,10 @@ from sk_core.views import BaseModelViewSet
 from ..filters.filters import WallFilterSet, BoxFilterSet, PointFilterSet, MenFilterSet, MapFilterSet
 from ..models import Map, Wall, Box, Point, Men
 from ..serializers.map import MapSerializer, WallSerializer, BoxSerializer, PointSerializer, MenSerializer
+from rest_framework_extensions.cache.mixins import CacheResponseMixin
 
 
-class MapObjectsBaseViewSet(BaseModelViewSet):
+class MapObjectsBaseViewSet(CacheResponseMixin, BaseModelViewSet):
     """
     A Base ViewSet for Maps and MapObjects
     """

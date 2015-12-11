@@ -12,3 +12,4 @@ coverage
 numpy
 django-rest-swagger
 pyyaml
+drf-extensions

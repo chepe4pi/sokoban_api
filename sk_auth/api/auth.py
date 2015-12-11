@@ -24,9 +24,7 @@ class LoginAPIView(GenericAPIView):
             login(request, user)
             return Response(BaseAuthSerializer(instance=user).data)
         else:
-            return Response(
-                data=serializer.errors,
-                status=status.HTTP_400_BAD_REQUEST) # TODO Change format
+            return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # TODO Logout api view
 
