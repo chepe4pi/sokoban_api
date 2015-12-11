@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'sk_map',
     'sk_auth',
     'sk_game',
+    'sk_skins'
 )
 
 CACHES = {
@@ -55,7 +56,9 @@ CACHES = {
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
@@ -95,13 +98,6 @@ REST_FRAMEWORK = {
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
 
-REST_FRAMEWORK_EXTENSIONS = {
-    'DEFAULT_OBJECT_CACHE_KEY_FUNC':
-        'rest_framework_extensions.utils.default_object_cache_key_func',
-    'DEFAULT_LIST_CACHE_KEY_FUNC':
-        'rest_framework_extensions.utils.default_list_cache_key_func',
-}
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -135,9 +131,16 @@ USE_TZ = True
 
 ANONYMOUS_USER_ID = -1
 
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/img/'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'media'),
+# )
+
+# STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
