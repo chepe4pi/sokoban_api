@@ -1,17 +1,9 @@
 import factory
 from faker import Faker
-from sk_auth.tests.factories import UserFactory
+from sk_core.tests.factories import AccesableObjBaseFactory
 from ..models import Map, Wall, Box, Point, Men
 
 faker = Faker()
-
-
-class AccesableObjBaseFactory(factory.django.DjangoModelFactory):
-    class Meta:
-        abstract = True
-
-    owner = factory.SubFactory(UserFactory)
-    public = False
 
 
 class MapFactory(AccesableObjBaseFactory):

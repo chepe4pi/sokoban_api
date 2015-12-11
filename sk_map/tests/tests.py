@@ -4,6 +4,7 @@ from rest_framework.test import APITestCase
 from sk_core.tests.tests import TestCasePermissionsMixin, AuthorizeForTestsMixin, TestCasePermissionPublicMixin
 from ..serializers.map import MenSerializer, PointSerializer, BoxSerializer, WallSerializer, MapSerializer
 from .factories import WallFactory, MapFactory, PointFactory, MenFactory, BoxFactory
+from sk_game.tests.factories import GameFactory
 from ..models import Map, Wall, Box, Point, Men
 from faker import Faker
 from mock_django import mock_signal_receiver
@@ -48,24 +49,32 @@ class MapTestCase(TestCasePermissionsMixin, APITestCase):
         super(MapTestCase, self).test_allow_get_own_obj()
         self.assertEqual(self.response.data, self.data)
 
-    def test_allow_put_own_obj(self):
-        self.data['title'] = faker.word()
-        response = self.client.put(self.obj_url, self.data)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, self.data)
+    def test_allow_change_public(self):
+        GameFactory(map=self.obj, owner=self.user, done=True)
+        states = True, False
+        for state in states:
+            data = {'public': state}
+            response = self.client.patch(self.obj_url, data)
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
+            self.assertEqual(data['public'], response.data['public'])
 
-    def test_allow_partial_put(self):
-        public = True
-        part = {'public': public}
-        self.data['public'] = public
-        response = self.client.put(self.obj_url, part)
+    def test_deny_change_public_if_no_done(self):
+        self.data = {'public': True}
+        response = self.client.put(self.obj_url, self.data)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_allow_patch(self):
+        title = faker.word()
+        part = {'title': title}
+        self.data['title'] = title
+        response = self.client.patch(self.obj_url, part)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, self.data)
 
     def test_deny_put_owner(self):
         part = {'owner': self.wrong_user.username}
         self.data['owner'] = self.wrong_user.username
-        response = self.client.put(self.obj_url, part)
+        response = self.client.patch(self.obj_url, part)
         self.assertEqual(response.data['owner'], self.user.username) # TODO response code
 
 
@@ -155,15 +164,24 @@ class MapObjTestCaseMixin(object):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_signal_change_public(self):
+        GameFactory(map=self.obj.map, owner=self.user, done=True)
         public = True
         with mock_signal_receiver(post_save) as receiver:
-            response = self.client.put(self.parent_url, {'public': public})
+            response = self.client.patch(self.parent_url, {'public': public})
             self.assertNotEqual(receiver.call_count, 0)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.client.force_authenticate(user=self.wrong_user)
         response = self.client.get(self.obj_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        response = self.client.get(self.parent_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_deny_change_public_directly(self):
+        GameFactory(map=self.obj.map, owner=self.user, done=True)
+        self.data = {'public': True}
+        response = self.client.put(self.obj_url, self.data)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 
 class WallCreateTestCase(MapObjCreateTestCaseMixin, AuthorizeForTestsMixin, APITestCase):
