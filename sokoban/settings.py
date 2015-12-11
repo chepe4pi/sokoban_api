@@ -36,14 +36,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.sites',
     'django_filters',
     'guardian',
     'rest_framework',
+    'rest_framework_swagger',
     'sk_core',
     'sk_map',
     'sk_auth',
-    # 'sk_profiles',
     'sk_game',
 )
 
