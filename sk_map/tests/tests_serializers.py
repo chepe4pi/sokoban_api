@@ -5,6 +5,8 @@ from .factories import MapFactory, BoxFactory, WallFactory, PointFactory, MenFac
 
 class MapTestCase(APITestCase):
 
+    fixtures = ['test_admin_user.json', 'base_skins.json']
+
     def setUp(self):
         self.obj = MapFactory()
         self.data = MapSerializer(self.obj).data
@@ -13,6 +15,7 @@ class MapTestCase(APITestCase):
             'title': self.obj.title,
             'owner': self.obj.owner.username,
             'public': self.obj.public,
+            'skin': self.obj.skin.id
         }
 
     def test_serializer(self):

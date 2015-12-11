@@ -77,6 +77,19 @@ class MapTestCase(TestCasePermissionsMixin, APITestCase):
         response = self.client.patch(self.obj_url, part)
         self.assertEqual(response.data['owner'], self.user.username) # TODO response code
 
+    def test_filter(self):
+        self.filter_url = self.url + '?' + urlencode({'owner': self.user.username})
+        response = self.client.get(self.filter_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn(self.data, response.data)
+
+    def test_allow_get_unauthorized_if_public(self):
+        setattr(self.obj, 'public', True)
+        self.obj.save()
+        self.client.logout()
+        response = self.client.get(self.obj_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
 
 class MapObjCreateTestCaseMixin(object):
     class Meta:
@@ -132,6 +145,15 @@ class MapObjFilterTestCaseMixin(object):
         response = self.client.get(self.filter_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn(self.expected, [dict(resp_obj) for resp_obj in response.data])
+
+    def test_limit_offset_filter(self):
+        filter_url = self.url + '?' + urlencode({'map': self.obj.map.id, 'limit': 1, 'offset': 0})
+        response = self.client.get(filter_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn(self.data, response.data['results'])
+        filter_url = self.url + '?' + urlencode({'map': self.obj.map.id, 'limit': 1, 'offset': 1})
+        response = self.client.get(filter_url)
+        self.assertNotIn(self.data, response.data['results'])
 
 
 class MapObjTestCaseMixin(object):
