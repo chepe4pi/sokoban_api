@@ -35,7 +35,7 @@ class WallViewSet(MapObjectsBaseViewSet):
     serializer_class = WallSerializer
     queryset = Wall.objects.all()
     filter_class = WallFilterSet
-
+    
 
 class BoxViewSet(MapObjectsBaseViewSet):
     """

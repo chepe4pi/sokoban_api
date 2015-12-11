@@ -26,8 +26,5 @@ class GameViewSet(BaseModelViewSet, ModelViewSet):
         setattr(instance, 'done', True)
         instance.save()
 
-    def perform_destroy(self, instance):
-        pass
-
     class Meta:
         model = UserMapMembership

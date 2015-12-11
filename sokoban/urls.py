@@ -5,17 +5,29 @@ from sk_map.api.map import MapsViewSet, WallViewSet, BoxViewSet, PointViewSet, M
 from sk_auth.api.auth import RegisterView, LoginAPIView
 from sk_game.api.game import GameViewSet
 
+action_pk = {'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}
+action_no_pk = {'get': 'list', 'post': 'create'}
 
 router = DefaultRouter()
 router.register(r'maps', MapsViewSet)
-router.register(r'wall', WallViewSet)
-router.register(r'box', BoxViewSet)
-router.register(r'point', PointViewSet)
-router.register(r'men', MenViewSet)
-router.register(r'game', GameViewSet)
 router.register(r'auth/register', RegisterView)
 urlpatterns = router.urls
 
+urlpatterns_game = patterns('sk_game.api.game',
+    url('^game/(?P<map>\d+)/$', GameViewSet.as_view({'get': 'retrieve', 'patch': 'partial_update'})),
+    url('^game/$', GameViewSet.as_view(action_no_pk)),
+)
+
+urlpatterns_map_obj = patterns('sk_map.api.map',
+    url('^wall/(?P<pk>\d+)/$', WallViewSet.as_view(action_pk)),
+    url('^wall/$', WallViewSet.as_view(action_no_pk)),
+    url('^box/(?P<pk>\d+)/$', BoxViewSet.as_view(action_pk)),
+    url('^box/$', BoxViewSet.as_view(action_no_pk)),
+    url('^point/(?P<pk>\d+)/$', PointViewSet.as_view(action_pk)),
+    url('^point/$', PointViewSet.as_view(action_no_pk)),
+    url('^men/(?P<pk>\d+)/$', MenViewSet.as_view(action_pk)),
+    url('^men/$', MenViewSet.as_view(action_no_pk)),
+)
 
 urlpatterns_admin = patterns('',
     url(r'^admin/', include(admin.site.urls)),
@@ -37,3 +49,5 @@ urlpatterns += urlpatterns_admin
 urlpatterns += urlpatterns_rest
 urlpatterns += urlpatterns_auth
 urlpatterns += patterns_swagger
+urlpatterns += urlpatterns_map_obj
+urlpatterns += urlpatterns_game
