@@ -4,12 +4,17 @@ from rest_framework.routers import DefaultRouter
 from sk_map.api.map import MapsViewSet, WallViewSet, BoxViewSet, PointViewSet, MenViewSet
 from sk_auth.api.auth import RegisterView, LoginAPIView
 from sk_game.api.game import GameViewSet
+from sk_skins.api.skins import SkinView
+from django.conf.urls.static import static
+from .settings import MEDIA_ROOT, MEDIA_URL
+
 
 action_pk = {'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}
 action_no_pk = {'get': 'list', 'post': 'create'}
 
 router = DefaultRouter()
 router.register(r'maps', MapsViewSet)
+router.register(r'skins', SkinView)
 router.register(r'auth/register', RegisterView)
 urlpatterns = router.urls
 
@@ -51,3 +56,6 @@ urlpatterns += urlpatterns_auth
 urlpatterns += patterns_swagger
 urlpatterns += urlpatterns_map_obj
 urlpatterns += urlpatterns_game
+
+urlpatterns += patterns('',
+                       ) + static(MEDIA_URL, document_root=MEDIA_ROOT)
