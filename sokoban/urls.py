@@ -52,5 +52,5 @@ urlpatterns += patterns_swagger
 urlpatterns += urlpatterns_map_obj
 urlpatterns += urlpatterns_game
 
-urlpatterns += patterns('',
-                       ) + static(MEDIA_URL, document_root=MEDIA_ROOT)
+# urlpatterns += patterns('',
+#                        ) + static(MEDIA_URL, document_root=MEDIA_ROOT)
