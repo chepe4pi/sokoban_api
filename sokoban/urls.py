@@ -55,6 +55,7 @@ urlpatterns += urlpatterns_auth
 urlpatterns += patterns_swagger
 urlpatterns += urlpatterns_map_obj
 urlpatterns += urlpatterns_game
+urlpatterns += patterns_swagger_root
 
 # urlpatterns += patterns('',
 #                        ) + static(MEDIA_URL, document_root=MEDIA_ROOT)
