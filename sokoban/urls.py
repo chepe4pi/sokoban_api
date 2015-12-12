@@ -46,6 +46,10 @@ patterns_swagger = patterns('',
     url(r'^docs_sw/', include('rest_framework_swagger.urls')),
 )
 
+patterns_swagger_root = patterns('',
+    url(r'^$', include('rest_framework_swagger.urls')),
+)
+
 urlpatterns += urlpatterns_admin
 urlpatterns += urlpatterns_auth
 urlpatterns += patterns_swagger
