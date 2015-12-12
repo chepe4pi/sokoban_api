@@ -13,3 +13,4 @@ mock-django
 numpy
 pyyaml
 pillow
+psycopg2
