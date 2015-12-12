@@ -5,8 +5,6 @@ from sk_map.api.map import MapsViewSet, WallViewSet, BoxViewSet, PointViewSet, M
 from sk_auth.api.auth import RegisterView, LoginAPIView
 from sk_game.api.game import GameViewSet
 from sk_skins.api.skins import SkinView
-from django.conf.urls.static import static
-from .settings import MEDIA_ROOT, MEDIA_URL
 
 
 action_pk = {'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}
@@ -46,16 +44,8 @@ patterns_swagger = patterns('',
     url(r'^docs_sw/', include('rest_framework_swagger.urls')),
 )
 
-patterns_swagger_root = patterns('',
-    url(r'^$', include('rest_framework_swagger.urls')),
-)
-
 urlpatterns += urlpatterns_admin
 urlpatterns += urlpatterns_auth
 urlpatterns += patterns_swagger
 urlpatterns += urlpatterns_map_obj
 urlpatterns += urlpatterns_game
-urlpatterns += patterns_swagger_root
-
-# urlpatterns += patterns('',
-#                        ) + static(MEDIA_URL, document_root=MEDIA_ROOT)
