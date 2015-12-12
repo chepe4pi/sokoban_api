@@ -118,8 +118,8 @@
       <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23776224">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.33286715">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -1035,12 +1035,6 @@
       <option name="number" value="Default" />
       <updated>1447855947299</updated>
     </task>
-    <task id="LOCAL-00030" summary="set partial updates for map">
-      <created>1449507673380</created>
-      <option name="number" value="00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1449507673380</updated>
-    </task>
     <task id="LOCAL-00031" summary="allow to filter map objects only by map_id">
       <created>1449507745294</created>
       <option name="number" value="00031" />
@@ -1329,7 +1323,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449915390632</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="edit requirements">
+      <created>1449915446002</created>
+      <option name="number" value="00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1449915446002</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1828,8 +1828,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23776224">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.33286715">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
           <folding />
         </state>
       </provider>
