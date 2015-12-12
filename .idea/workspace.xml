@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d99fc024-22fa-4886-a2de-4ffebdba0af8" name="Default" comment="push">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/sokoban.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+    <list default="true" id="d99fc024-22fa-4886-a2de-4ffebdba0af8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
     </list>
     <ignored path="sokoban_api.iws" />
@@ -122,8 +118,8 @@
       <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.23776224">
+              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -573,7 +569,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.docker" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -1039,18 +1035,6 @@
       <option name="number" value="Default" />
       <updated>1447855947299</updated>
     </task>
-    <task id="LOCAL-00028" summary="bulid tests">
-      <created>1449507550546</created>
-      <option name="number" value="00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1449507550546</updated>
-    </task>
-    <task id="LOCAL-00029" summary="allow partial updates">
-      <created>1449507626506</created>
-      <option name="number" value="00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1449507626506</updated>
-    </task>
     <task id="LOCAL-00030" summary="set partial updates for map">
       <created>1449507673380</created>
       <option name="number" value="00030" />
@@ -1333,7 +1317,19 @@
       <option name="project" value="LOCAL" />
       <updated>1449914059666</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="edit requirements">
+      <created>1449914324851</created>
+      <option name="number" value="00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1449914324851</updated>
+    </task>
+    <task id="LOCAL-00078" summary="edit requirements">
+      <created>1449915390632</created>
+      <option name="number" value="00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1449915390632</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1424,7 +1420,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="add core tests and factories" />
     <MESSAGE value="add IsOwner filter backend" />
     <MESSAGE value="add new packages" />
     <MESSAGE value="add swagger app, game app" />
@@ -1449,7 +1444,8 @@
     <MESSAGE value="remove idea,edit gitignore" />
     <MESSAGE value="add configs, edit gitignore" />
     <MESSAGE value="edit config" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit config" />
+    <MESSAGE value="edit requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit requirements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1832,8 +1828,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.23776224">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding />
         </state>
       </provider>
