@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d99fc024-22fa-4886-a2de-4ffebdba0af8" name="Default" comment="push">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/configs/nginx/sokoban.conf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/configs/uwsgi/uwsgi.ini" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/sokoban.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
     </list>
     <ignored path="sokoban_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,22 +67,6 @@
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PostgreSQL - sokoban@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -131,7 +113,17 @@
         <entry file="file://$PROJECT_DIR$/configs/uwsgi/uwsgi.ini">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -141,17 +133,17 @@
         <entry file="file://$PROJECT_DIR$/configs/nginx/sokoban.conf">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4503497">
-              <caret line="61" column="10" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -240,15 +232,15 @@
         <option value="$PROJECT_DIR$/sokoban/settings.py" />
         <option value="$PROJECT_DIR$/sk_skins/api/skins.py" />
         <option value="$PROJECT_DIR$/sk_skins/tests/tests.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/sk_game/vallidators/solution.py" />
         <option value="$PROJECT_DIR$/sk_game/serializers/game.py" />
         <option value="$PROJECT_DIR$/sokoban/urls.py" />
         <option value="$PROJECT_DIR$/configs/uwsgi.ini" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/configs/nginx/www.cleverpiano.com.conf" />
-        <option value="$PROJECT_DIR$/configs/nginx/sokoban.conf" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/configs/nginx/sokoban.conf" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -599,7 +591,7 @@
       <recent name="C:\Users\iamlexa\PycharmProjects\sokoban_api\sk_core\filters" />
     </key>
   </component>
-  <component name="RunManager" selected="Django tests.tests">
+  <component name="RunManager" selected="Django server.sokoban_api">
     <configuration default="false" name="Test: sk_map.tests.tests.BoxTestCase" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -992,7 +984,30 @@
       <option name="OPTIONS" value="--keepdb" />
       <method />
     </configuration>
-    <list size="8">
+    <configuration default="false" name="sokoban_api" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="sokoban_api" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <list size="9">
       <item index="0" class="java.lang.String" itemvalue="Django server.Sokoban" />
       <item index="1" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests.WallTestCase" />
       <item index="2" class="java.lang.String" itemvalue="Django tests.tests" />
@@ -1001,6 +1016,7 @@
       <item index="5" class="java.lang.String" itemvalue="Django tests.Test: sk_map.tests.tests_serializers.MapTestCase" />
       <item index="6" class="java.lang.String" itemvalue="Django tests.Test: sk_auth.tests.tests.RegTestCase" />
       <item index="7" class="java.lang.String" itemvalue="Django tests.Test: sk_game.tests.tests.GameTestCase" />
+      <item index="8" class="java.lang.String" itemvalue="Django server.sokoban_api" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -1022,24 +1038,6 @@
       <created>1447855947299</created>
       <option name="number" value="Default" />
       <updated>1447855947299</updated>
-    </task>
-    <task id="LOCAL-00025" summary="create auth_tests by factory boy">
-      <created>1449162585600</created>
-      <option name="number" value="00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1449162585600</updated>
-    </task>
-    <task id="LOCAL-00026" summary="add size for map">
-      <created>1449164095436</created>
-      <option name="number" value="00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1449164095436</updated>
-    </task>
-    <task id="LOCAL-00027" summary="remove prints">
-      <created>1449254468365</created>
-      <option name="number" value="00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1449254468365</updated>
     </task>
     <task id="LOCAL-00028" summary="bulid tests">
       <created>1449507550546</created>
@@ -1317,7 +1315,25 @@
       <option name="project" value="LOCAL" />
       <updated>1449910134891</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="remove idea,edit gitignore">
+      <created>1449910349765</created>
+      <option name="number" value="00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1449910349765</updated>
+    </task>
+    <task id="LOCAL-00075" summary="add configs, edit gitignore">
+      <created>1449910667548</created>
+      <option name="number" value="00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1449910667548</updated>
+    </task>
+    <task id="LOCAL-00076" summary="edit config">
+      <created>1449914059666</created>
+      <option name="number" value="00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1449914059666</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1366,7 +1382,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26997423" sideWeight="0.48875254" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20437019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20694087" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3719346" sideWeight="0.5025773" order="10" side_tool="true" content_ui="tabs" />
@@ -1408,9 +1424,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="crete tests for game app" />
-    <MESSAGE value="edit sk_map app" />
-    <MESSAGE value="remove unused functions" />
     <MESSAGE value="add core tests and factories" />
     <MESSAGE value="add IsOwner filter backend" />
     <MESSAGE value="add new packages" />
@@ -1433,7 +1446,10 @@
     <MESSAGE value="edit check solution algorithm" />
     <MESSAGE value="add TODO, disable rest web interface" />
     <MESSAGE value="remove .idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove .idea" />
+    <MESSAGE value="remove idea,edit gitignore" />
+    <MESSAGE value="add configs, edit gitignore" />
+    <MESSAGE value="edit config" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1450,6 +1466,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../interview_task_marvel_api/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Plaay/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../Plaay/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1591,18 +1623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d57a0b98/f897af33-4555-4158-9793-c35c0e79f85e/sokoban.public.sk_skins_skins">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sk_core/tests/factories.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1708,25 +1728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d57a0b98/f897af33-4555-4158-9793-c35c0e79f85e/sokoban.public.cache">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sk_core/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1797,10 +1798,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configs/uwsgi/uwsgi.ini">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1808,15 +1809,31 @@
     <entry file="file://$PROJECT_DIR$/configs/nginx/sokoban.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$USER_HOME$/server_configs/etc/uwsgi/testuwsgi.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4503497">
-          <caret line="61" column="10" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.35664335">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/uwsgi/uwsgi.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
           <folding />
         </state>
       </provider>
