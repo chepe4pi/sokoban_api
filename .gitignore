@@ -8,6 +8,9 @@ __pycache__/
 # PyCharm
 .idea/
 
+# static files
+static/
+
 # Distribution / packaging
 .Python
 env/
