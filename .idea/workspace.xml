@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d99fc024-22fa-4886-a2de-4ffebdba0af8" name="Default" comment="edit requirements">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wsgi.py" afterPath="$PROJECT_DIR$/sokoban/wsgi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/uwsgi/uwsgi.ini" afterPath="$PROJECT_DIR$/configs/uwsgi/uwsgi.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sokoban/urls.py" afterPath="$PROJECT_DIR$/sokoban/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/nginx/sokoban.conf" afterPath="$PROJECT_DIR$/configs/nginx/sokoban.conf" />
     </list>
     <ignored path="sokoban_api.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +23,7 @@
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_tests_serializers_MapSerializerTestCase.coverage" NAME="Test: sk_auth.tests.tests_serializers.MapSerializerTestCase Coverage Results" MODIFIED="1449488388826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_core_tests.coverage" NAME="Test: sk_core.tests Coverage Results" MODIFIED="1449487719119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_skins_tests_tests_SkinTestCase.coverage" NAME="Test: sk_skins.tests.tests.SkinTestCase Coverage Results" MODIFIED="1449863599450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/sokoban_api$tests.coverage" NAME="tests Coverage Results" MODIFIED="1449932616535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/sokoban_api$tests.coverage" NAME="tests Coverage Results" MODIFIED="1450034710517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_game_tests_tests_GameTestCase.coverage" NAME="Test: sk_game.tests.tests.GameTestCase Coverage Results" MODIFIED="1449859285674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_auth_tests_AuthTestCase___keepdb.coverage" NAME="Test: sk_auth.tests.AuthTestCase --keepdb Coverage Results" MODIFIED="1448917897716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/sokoban_api$Test__sk_map_tests_tests_MapCreateTestCase.coverage" NAME="Test: sk_map.tests.tests.MapCreateTestCase Coverage Results" MODIFIED="1449315234635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
@@ -124,17 +121,17 @@
         <entry file="file://$PROJECT_DIR$/configs/uwsgi/uwsgi.ini">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sokoban/wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3846154">
-              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -170,11 +167,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sokoban.conf" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sokoban.conf" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/configs/nginx/sokoban.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.15704387">
+              <caret line="4" column="96" selection-start-line="4" selection-start-column="96" selection-end-line="4" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -245,13 +242,13 @@
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/configs/nginx/www.cleverpiano.com.conf" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/sokoban/wsgi.py" />
         <option value="$PROJECT_DIR$/wsgi.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/configs/nginx/sokoban.conf" />
-        <option value="$PROJECT_DIR$/configs/uwsgi/uwsgi.ini" />
         <option value="$PROJECT_DIR$/sokoban/settings.py" />
         <option value="$PROJECT_DIR$/sokoban/urls.py" />
+        <option value="$PROJECT_DIR$/configs/uwsgi/uwsgi.ini" />
+        <option value="$PROJECT_DIR$/sokoban/wsgi.py" />
+        <option value="$PROJECT_DIR$/configs/nginx/sokoban.conf" />
       </list>
     </option>
   </component>
@@ -261,10 +258,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="1612" />
-    <option name="height" value="876" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -543,20 +539,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="media" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sokoban_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sokoban_api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="configs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -616,7 +598,7 @@
       <recent name="C:\Users\iamlexa\PycharmProjects\sokoban_api\sk_game\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Django server.sokoban_api">
+  <component name="RunManager" selected="Django tests.tests">
     <configuration default="false" name="Test: sk_map.tests.tests.BoxTestCase" type="DjangoTestsConfigurationType" factoryName="Django tests" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1065,48 +1047,6 @@
       <option name="number" value="Default" />
       <updated>1447855947299</updated>
     </task>
-    <task id="LOCAL-00048" summary="crete game app">
-      <created>1449836638490</created>
-      <option name="number" value="00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1449836638490</updated>
-    </task>
-    <task id="LOCAL-00049" summary="crete tests for game app">
-      <created>1449836658096</created>
-      <option name="number" value="00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1449836658096</updated>
-    </task>
-    <task id="LOCAL-00050" summary="edit sk_map app">
-      <created>1449836693543</created>
-      <option name="number" value="00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1449836693544</updated>
-    </task>
-    <task id="LOCAL-00051" summary="remove unused functions">
-      <created>1449836742366</created>
-      <option name="number" value="00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1449836742366</updated>
-    </task>
-    <task id="LOCAL-00052" summary="add core tests and factories">
-      <created>1449836800217</created>
-      <option name="number" value="00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1449836800217</updated>
-    </task>
-    <task id="LOCAL-00053" summary="add IsOwner filter backend">
-      <created>1449836823456</created>
-      <option name="number" value="00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1449836823456</updated>
-    </task>
-    <task id="LOCAL-00054" summary="add new packages">
-      <created>1449836842859</created>
-      <option name="number" value="00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1449836842859</updated>
-    </task>
     <task id="LOCAL-00055" summary="add swagger app, game app">
       <created>1449836869258</created>
       <option name="number" value="00055" />
@@ -1359,16 +1299,52 @@
       <option name="project" value="LOCAL" />
       <updated>1449931314314</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="remove trash">
+      <created>1449933959392</created>
+      <option name="number" value="00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1449933959392</updated>
+    </task>
+    <task id="LOCAL-00098" summary="redirect root">
+      <created>1449934190202</created>
+      <option name="number" value="00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1449934190202</updated>
+    </task>
+    <task id="LOCAL-00099" summary="set redirect">
+      <created>1449934386603</created>
+      <option name="number" value="00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1449934386603</updated>
+    </task>
+    <task id="LOCAL-00100" summary="move wsgi module">
+      <created>1449934735098</created>
+      <option name="number" value="00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1449934735098</updated>
+    </task>
+    <task id="LOCAL-00101" summary="change domain">
+      <created>1450001752399</created>
+      <option name="number" value="00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1450001752400</updated>
+    </task>
+    <task id="LOCAL-00102" summary="edit domain">
+      <created>1450001909414</created>
+      <option name="number" value="00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1450001909414</updated>
+    </task>
+    <task id="LOCAL-00103" summary="edit config">
+      <created>1450020284659</created>
+      <option name="number" value="00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1450020284659</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="tests - 2015.12.11 at 23h 10m 38s.xml">
-      <configuration name="tests" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="tests - 2015.12.11 at 23h 16m 50s.xml">
-      <configuration name="tests" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
     <history-entry file="tests - 2015.12.11 at 23h 21m 37s.xml">
       <configuration name="tests" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
@@ -1393,6 +1369,12 @@
     <history-entry file="tests - 2015.12.12 at 18h 03m 43s.xml">
       <configuration name="tests" configurationId="DjangoTestsConfigurationType" />
     </history-entry>
+    <history-entry file="tests - 2015.12.13 at 22h 22m 22s.xml">
+      <configuration name="tests" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2015.12.13 at 22h 25m 19s.xml">
+      <configuration name="tests" configurationId="DjangoTestsConfigurationType" />
+    </history-entry>
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1404,18 +1386,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
-    <editor active="false" />
+    <frame x="-7" y="0" width="1612" height="867" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3719346" sideWeight="0.5025773" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32288828" sideWeight="0.49625" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36742935" sideWeight="0.4974227" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3719346" sideWeight="0.4974227" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26997423" sideWeight="0.48875254" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20747423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20747423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17783505" sideWeight="0.47659576" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1450,12 +1432,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="add skins to model" />
-    <MESSAGE value="switch to django cache" />
-    <MESSAGE value="add app sk_skins url and media url" />
-    <MESSAGE value="enable STATIC_URL" />
-    <MESSAGE value="add filtes class to skin api" />
-    <MESSAGE value="disable skin info from map request" />
     <MESSAGE value="deny to get skin directly" />
     <MESSAGE value="change cache table name" />
     <MESSAGE value="commit real requirements" />
@@ -1472,10 +1448,16 @@
     <MESSAGE value="ooops" />
     <MESSAGE value="add base media" />
     <MESSAGE value="disable cache" />
-    <MESSAGE value="edit config" />
     <MESSAGE value="disable django media url" />
     <MESSAGE value="put swagger to root" />
-    <option name="LAST_COMMIT_MESSAGE" value="put swagger to root" />
+    <MESSAGE value="remove trash" />
+    <MESSAGE value="redirect root" />
+    <MESSAGE value="set redirect" />
+    <MESSAGE value="move wsgi module" />
+    <MESSAGE value="change domain" />
+    <MESSAGE value="edit domain" />
+    <MESSAGE value="edit config" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1811,14 +1793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configs/nginx/sokoban.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/sokoban_venv_34/Lib/site-packages/rest_framework_swagger/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1833,14 +1807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="103" column="6" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/uwsgi/uwsgi.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1863,10 +1829,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/configs/uwsgi/uwsgi.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sokoban/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3846154">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/nginx/sokoban.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15704387">
+          <caret line="4" column="96" selection-start-line="4" selection-start-column="96" selection-end-line="4" selection-end-column="96" />
           <folding />
         </state>
       </provider>
