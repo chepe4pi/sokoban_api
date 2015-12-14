@@ -47,12 +47,12 @@ INSTALLED_APPS = (
     'sk_skins'
 )
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'cache',
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'cache',
+#     }
+# }
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -96,7 +96,10 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    'DEFAULT_VERSION': '1'
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -142,5 +145,6 @@ MEDIA_URL = '/img/'
 # )
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)

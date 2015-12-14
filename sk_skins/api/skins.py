@@ -8,7 +8,8 @@ from ..filters.map import SkinFilterSet
 
 class SkinView(ListModelMixin, GenericViewSet):
     """
-    A View for retrieve images for Game levels
+    A View for retrieve images for Game levels.
+    Any Map can be pointed to any Skin. The fields bellow contain links to images.
     """
     serializer_class = SkinSerializer
     permission_classes = [AllowAny]

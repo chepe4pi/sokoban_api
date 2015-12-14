@@ -5,6 +5,12 @@ __pycache__/
 # C extensions
 *.so
 
+# PyCharm
+.idea/
+
+# static files
+static/
+
 # Distribution / packaging
 .Python
 env/
@@ -55,9 +61,5 @@ docs/_build/
 
 # PyBuilder
 target/
-
-# PyCharm
-
-.idea/
 
 db.sqlite3

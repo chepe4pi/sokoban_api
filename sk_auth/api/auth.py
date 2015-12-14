@@ -6,18 +6,18 @@ from rest_framework.permissions import AllowAny
 from ..serializers.users import RegisterSerializer, LoginSerializer, BaseAuthSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 
 
-class LoginAPIView(GenericAPIView):
-    """
-    A view for login logout user
-    """
+class AuthAPIView(GenericAPIView):
 
     serializer_class = LoginSerializer
     permission_classes = [AllowAny]
 
     def post(self, request):
+        """
+        A view for login  user
+        """
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             user = serializer.user
@@ -26,7 +26,15 @@ class LoginAPIView(GenericAPIView):
         else:
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# TODO Logout api view
+    def delete(self, request):
+        """
+        A view for logout user
+        """
+        if request.user.is_authenticated():
+            logout(request)
+            return Response(data={}, status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(data={}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 class RegisterView(CreateModelMixin, GenericViewSet):
