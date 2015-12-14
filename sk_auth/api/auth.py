@@ -10,14 +10,14 @@ from django.contrib.auth import login, logout
 
 
 class AuthAPIView(GenericAPIView):
-    """
-    A view for login logout user
-    """
 
     serializer_class = LoginSerializer
     permission_classes = [AllowAny]
 
     def post(self, request):
+        """
+        A view for login  user
+        """
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             user = serializer.user
@@ -27,6 +27,9 @@ class AuthAPIView(GenericAPIView):
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request):
+        """
+        A view for logout user
+        """
         logout(request)
         return Response(data={}, status=status.HTTP_204_NO_CONTENT)
 
