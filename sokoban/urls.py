@@ -1,13 +1,14 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
-from sk_map.api.map import MapsViewSet, WallViewSet, BoxViewSet, PointViewSet, MenViewSet
+from sk_map.api.map import MapsViewSet, WallViewSet, BoxViewSet, PointViewSet, MenViewSet,\
+    WallListViewSet, BoxListViewSet, PointListViewSet, MenListViewSet
 from sk_auth.api.auth import RegisterView, LoginAPIView
 from sk_game.api.game import GameViewSet
 from sk_skins.api.skins import SkinView
 
 
-action_pk = {'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}
+action = {'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}
 action_no_pk = {'get': 'list', 'post': 'create'}
 
 router = DefaultRouter()
@@ -18,18 +19,18 @@ urlpatterns = router.urls
 
 urlpatterns_game = [
     url('^game/(?P<map>\d+)/$', GameViewSet.as_view({'get': 'retrieve', 'patch': 'partial_update'})),
-    url('^game/$', GameViewSet.as_view(action_no_pk)),
+    url('^game/$', GameViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy', 'post': 'create'})),
 ]
 
 urlpatterns_map_obj = [
-    url('^wall/(?P<pk>\d+)/$', WallViewSet.as_view(action_pk)),
-    url('^wall/$', WallViewSet.as_view(action_no_pk)),
-    url('^box/(?P<pk>\d+)/$', BoxViewSet.as_view(action_pk)),
-    url('^box/$', BoxViewSet.as_view(action_no_pk)),
-    url('^point/(?P<pk>\d+)/$', PointViewSet.as_view(action_pk)),
-    url('^point/$', PointViewSet.as_view(action_no_pk)),
-    url('^men/(?P<pk>\d+)/$', MenViewSet.as_view(action_pk)),
-    url('^men/$', MenViewSet.as_view(action_no_pk)),
+    url('^wall/(?P<pk>\d+)/$', WallViewSet.as_view(action)),
+    url('^wall/$', WallListViewSet.as_view(action_no_pk)),
+    url('^box/(?P<pk>\d+)/$', BoxViewSet.as_view(action)),
+    url('^box/$', BoxListViewSet.as_view(action_no_pk)),
+    url('^point/(?P<pk>\d+)/$', PointViewSet.as_view(action)),
+    url('^point/$', PointListViewSet.as_view(action_no_pk)),
+    url('^men/(?P<pk>\d+)/$', MenViewSet.as_view(action)),
+    url('^men/$', MenListViewSet.as_view(action_no_pk)),
 ]
 
 urlpatterns_admin =[
@@ -41,7 +42,7 @@ urlpatterns_auth = [
                             ]
 
 patterns_swagger = [
-    url(r'^docs_sw/', include('rest_framework_swagger.urls')),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
 ]
 
 urlpatterns += urlpatterns_admin
