@@ -30,8 +30,11 @@ class AuthAPIView(GenericAPIView):
         """
         A view for logout user
         """
-        logout(request)
-        return Response(data={}, status=status.HTTP_204_NO_CONTENT)
+        if request.user.is_authenticated():
+            logout(request)
+            return Response(data={}, status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(data={}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 class RegisterView(CreateModelMixin, GenericViewSet):

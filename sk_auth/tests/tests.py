@@ -4,7 +4,7 @@ from .factories import UserFactory
 from django.contrib.auth.models import User
 
 
-class LoginTestCase(APITestCase):
+class AuthTestCase(APITestCase):
 
     url = '/auth/'
 
@@ -28,6 +28,9 @@ class LoginTestCase(APITestCase):
         self.assertEqual(User.objects.get(username=self.user.username).username, self.user.username)
 
     def test_logout(self):
+        self.client.logout()
+        response = self.client.delete(self.url)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.client.force_authenticate(user=self.user)
         response = self.client.delete(self.url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
