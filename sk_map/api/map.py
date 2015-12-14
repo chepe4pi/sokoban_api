@@ -57,7 +57,6 @@ class MapsViewSet(MapObjectsBaseViewSet):
     """
     queryset = Map.objects.all()
     serializer_class = MapSerializer
-    filter_class = MapFilterSet
 
     def list(self, request, *args, **kwargs):
         """
@@ -95,6 +94,10 @@ class MapsViewSet(MapObjectsBaseViewSet):
         """
         kwargs['partial'] = True
         return self.update(request, *args, **kwargs)
+
+
+class MapListViewSet(MapsViewSet):
+    filter_class = MapFilterSet
 
 
 class WallViewSet(MapObjectsBaseViewSet):
