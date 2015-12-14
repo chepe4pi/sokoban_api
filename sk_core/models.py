@@ -21,7 +21,7 @@ class OwnableModel(models.Model):
 
 
 class AccessibleModel(OwnableModel):
-    public = models.BooleanField(default=False)
+    public = models.BooleanField(default=False, help_text='object show for everyone or only for owner')
 
     class Meta:
         abstract = True

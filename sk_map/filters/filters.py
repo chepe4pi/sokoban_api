@@ -12,7 +12,7 @@ class MapFilterSet(FilterSet):
 
 
 class MapObjFilterSetMixin(FilterSet):
-    map = NumberFilter(name='map__id')
+    map = NumberFilter(name='map__id', help_text='filter by map id')
 
     class Meta:
         fields = ['map']

@@ -5,7 +5,7 @@ from sk_skins.models import Skins
 
 
 class Map(AccessibleModel, TimestampableModel):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, help_text='title of map')
     players = models.ManyToManyField(
         User,
         through='sk_game.UserMapMembership',
@@ -17,8 +17,8 @@ class Map(AccessibleModel, TimestampableModel):
 
 class MapLocation(AccessibleModel, TimestampableModel):
 
-    x = models.PositiveSmallIntegerField()
-    y = models.PositiveSmallIntegerField()
+    x = models.PositiveSmallIntegerField(help_text='position by x coordinate')
+    y = models.PositiveSmallIntegerField(help_text='position by y coordinate')
 
     class Meta:
         abstract = True
@@ -27,7 +27,7 @@ class MapLocation(AccessibleModel, TimestampableModel):
         return ' '.join([str(self.id), str(self.public), str(self.owner), '-', str(self.x), str(self.y)])
 
 class OnMap(MapLocation):
-    map = models.ForeignKey(Map)
+    map = models.ForeignKey(Map, help_text='id of map that pointed')
 
     class Meta:
         abstract = True
