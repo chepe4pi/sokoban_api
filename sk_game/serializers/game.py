@@ -10,6 +10,17 @@ from ..models import UserMapMembership
 
 class GameSerializer(BaseModelSerializer):
 
+    def __init__(self, *args, **kwargs):
+        fields = kwargs.pop('fields', None)
+
+        super(GameSerializer, self).__init__(*args, **kwargs)
+
+        if fields is not None:
+            allowed = set(fields)
+            existing = set(self.fields.keys())
+            for field_name in existing - allowed:
+                self.fields.pop(field_name)
+
     def validate_steps(self, value):
         solution = GameSolutionValidator(self.initial_data['map'], value)
         if solution.is_valid():
