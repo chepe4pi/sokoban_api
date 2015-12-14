@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
-from sk_map.api.map import MapsViewSet, WallViewSet, BoxViewSet, PointViewSet, MenViewSet,\
+from sk_map.api.map import MapViewSet, WallViewSet, BoxViewSet, PointViewSet, MenViewSet,\
     WallListViewSet, BoxListViewSet, PointListViewSet, MenListViewSet, MapListViewSet
 from sk_auth.api.auth import RegisterView, AuthAPIView
 from sk_game.api.game import GameViewSet
@@ -23,7 +23,7 @@ urlpatterns_game = [
 ]
 
 urlpatterns_map = {
-    url('^map/(?P<pk>\d+)/$', MapsViewSet.as_view(action_with_patch)),
+    url('^map/(?P<pk>\d+)/$', MapViewSet.as_view(action_with_patch)),
     url('^map/$', MapListViewSet.as_view(action_no_pk)),
 }
 

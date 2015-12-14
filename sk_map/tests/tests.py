@@ -14,7 +14,7 @@ faker = Faker()
 
 
 class MapCreateTestCase(AuthorizeForTestsMixin, APITestCase):
-    url = '/maps/'
+    url = '/map/'
 
     def setUp(self):
         super(MapCreateTestCase, self).setUp()
@@ -38,7 +38,7 @@ class MapCreateTestCase(AuthorizeForTestsMixin, APITestCase):
 
 
 class MapTestCase(TestCasePermissionsMixin, APITestCase):
-    url = '/maps/'
+    url = '/map/'
 
     def setUp(self):
         self.obj = MapFactory()
@@ -162,7 +162,7 @@ class MapObjTestCaseMixin(object):
 
     def setUp(self):
         super(MapObjTestCaseMixin, self).setUp()
-        self.parent_url = '/maps/' + str(self.obj.map.id) + '/'
+        self.parent_url = '/map/' + str(self.obj.map.id) + '/'
 
     def test_allow_get_own_obj(self):
         super(MapObjTestCaseMixin, self).test_allow_get_own_obj()

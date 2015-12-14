@@ -50,7 +50,7 @@ class MapObjectsBaseViewSet(BaseModelViewSet):
         abstract = True
 
 
-class MapsViewSet(MapObjectsBaseViewSet):
+class MapViewSet(MapObjectsBaseViewSet):
     """
     Maps as a game levels.
     The Map objects is a game levels, which can create any authorized User and share with other players.
@@ -58,23 +58,11 @@ class MapsViewSet(MapObjectsBaseViewSet):
     queryset = Map.objects.all()
     serializer_class = MapSerializer
 
-    def list(self, request, *args, **kwargs):
-        """
-        This method return a list and info about available Maps
-        """
-        return super(MapObjectsBaseViewSet, self).list(request, *args, **kwargs)
-
     def retrieve(self, request, *args, **kwargs):
         """
         This method return info about single Map
         """
         return super(MapObjectsBaseViewSet, self).retrieve(request, *args, **kwargs)
-
-    def create(self, request, *args, **kwargs):
-        """
-        This method create a Map-object.
-        """
-        return super(MapObjectsBaseViewSet, self).create(request, *args, **kwargs)
 
     def destroy(self, request, *args, **kwargs):
         """
@@ -96,8 +84,21 @@ class MapsViewSet(MapObjectsBaseViewSet):
         return self.update(request, *args, **kwargs)
 
 
-class MapListViewSet(MapsViewSet):
+class MapListViewSet(MapViewSet):
+
     filter_class = MapFilterSet
+
+    def list(self, request, *args, **kwargs):
+        """
+        This method return a list and info about available Maps
+        """
+        return super(MapObjectsBaseViewSet, self).list(request, *args, **kwargs)
+
+    def create(self, request, *args, **kwargs):
+        """
+        This method create a Map-object.
+        """
+        return super(MapObjectsBaseViewSet, self).create(request, *args, **kwargs)
 
 
 class WallViewSet(MapObjectsBaseViewSet):
