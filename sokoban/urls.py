@@ -16,12 +16,12 @@ router.register(r'skins', SkinView)
 router.register(r'auth/register', RegisterView)
 urlpatterns = router.urls
 
-urlpatterns_game = patterns('sk_game.api.game',
+urlpatterns_game = [
     url('^game/(?P<map>\d+)/$', GameViewSet.as_view({'get': 'retrieve', 'patch': 'partial_update'})),
     url('^game/$', GameViewSet.as_view(action_no_pk)),
-)
+]
 
-urlpatterns_map_obj = patterns('sk_map.api.map',
+urlpatterns_map_obj = [
     url('^wall/(?P<pk>\d+)/$', WallViewSet.as_view(action_pk)),
     url('^wall/$', WallViewSet.as_view(action_no_pk)),
     url('^box/(?P<pk>\d+)/$', BoxViewSet.as_view(action_pk)),
@@ -30,19 +30,19 @@ urlpatterns_map_obj = patterns('sk_map.api.map',
     url('^point/$', PointViewSet.as_view(action_no_pk)),
     url('^men/(?P<pk>\d+)/$', MenViewSet.as_view(action_pk)),
     url('^men/$', MenViewSet.as_view(action_no_pk)),
-)
+]
 
-urlpatterns_admin = patterns('',
+urlpatterns_admin =[
     url(r'^admin/', include(admin.site.urls)),
-)
+]
 
-urlpatterns_auth = patterns('',
+urlpatterns_auth = [
     url(r'^auth/login/', LoginAPIView.as_view(), name='login_view')
-                            )
+                            ]
 
-patterns_swagger = patterns('',
+patterns_swagger = [
     url(r'^docs_sw/', include('rest_framework_swagger.urls')),
-)
+]
 
 urlpatterns += urlpatterns_admin
 urlpatterns += urlpatterns_auth
