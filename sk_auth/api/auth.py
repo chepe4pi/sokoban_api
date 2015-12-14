@@ -6,10 +6,10 @@ from rest_framework.permissions import AllowAny
 from ..serializers.users import RegisterSerializer, LoginSerializer, BaseAuthSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 
 
-class LoginAPIView(GenericAPIView):
+class AuthAPIView(GenericAPIView):
     """
     A view for login logout user
     """
@@ -26,7 +26,9 @@ class LoginAPIView(GenericAPIView):
         else:
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# TODO Logout api view
+    def delete(self, request):
+        logout(request)
+        return Response(data={}, status=status.HTTP_204_NO_CONTENT)
 
 
 class RegisterView(CreateModelMixin, GenericViewSet):

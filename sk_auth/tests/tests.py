@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class LoginTestCase(APITestCase):
 
-    url = '/auth/login/'
+    url = '/auth/'
 
     def setUp(self):
         self.user = UserFactory()
@@ -26,6 +26,11 @@ class LoginTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, self.expected)
         self.assertEqual(User.objects.get(username=self.user.username).username, self.user.username)
+
+    def test_logout(self):
+        self.client.force_authenticate(user=self.user)
+        response = self.client.delete(self.url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
     def test_wrong_password(self):
         self.data['password'] = 'sW3%j34G3'

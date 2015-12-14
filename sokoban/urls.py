@@ -3,7 +3,7 @@ from django.contrib import admin
 from rest_framework.routers import DefaultRouter
 from sk_map.api.map import MapsViewSet, WallViewSet, BoxViewSet, PointViewSet, MenViewSet,\
     WallListViewSet, BoxListViewSet, PointListViewSet, MenListViewSet
-from sk_auth.api.auth import RegisterView, LoginAPIView
+from sk_auth.api.auth import RegisterView, AuthAPIView
 from sk_game.api.game import GameViewSet
 from sk_skins.api.skins import SkinView
 
@@ -38,7 +38,7 @@ urlpatterns_admin =[
 ]
 
 urlpatterns_auth = [
-    url(r'^auth/login/', LoginAPIView.as_view(), name='login_view')
+    url(r'^auth/', AuthAPIView.as_view(), name='login_view')
                             ]
 
 patterns_swagger = [
