@@ -26,6 +26,7 @@ class MapLocation(AccessibleModel, TimestampableModel):
     def __str__(self):
         return ' '.join([str(self.id), str(self.public), str(self.owner), '-', str(self.x), str(self.y)])
 
+
 class OnMap(MapLocation):
     map = models.ForeignKey(Map, help_text='id of map that pointed')
 

@@ -10,8 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -22,10 +22,7 @@ SECRET_KEY = '3pksphe4n87$6scq!)ih__w5+y@hj4i52%24y6h&ma78#jh%-f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -70,7 +67,6 @@ ROOT_URLCONF = 'sokoban.urls'
 
 WSGI_APPLICATION = 'sokoban.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -82,8 +78,8 @@ DATABASES = {
         'PASSWORD': 'qqqwww',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-        },
-    }
+    },
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -99,7 +95,6 @@ REST_FRAMEWORK = {
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
     'DEFAULT_VERSION': '1'
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -147,4 +142,25 @@ MEDIA_URL = '/img/'
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'debug': True,
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
