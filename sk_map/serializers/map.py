@@ -6,7 +6,6 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class MapObjectSerializerMixin(BaseModelSerializer):
-
     class Meta:
         fields = ('id', 'x', 'y', 'map')
 
@@ -32,10 +31,9 @@ class MenSerializer(MapObjectSerializerMixin):
 
 
 class MapSerializer(BaseModelSerializer):
-
     def validate_public(self, value):
         if value is False or UserMapMembership.objects.filter(owner=self.context['request'].user,
-                                                                 map=self.instance.id, done=True).count() > 0:
+                                                              map=self.instance.id, done=True).count() > 0:
             return value
         else:
             raise ValidationError(_('First you have to took this map'))
@@ -46,8 +44,8 @@ class MapSerializer(BaseModelSerializer):
 
 
 class LocationSerializer(BaseModelSerializer):
-     class Meta:
-        model = Wall # TODO this is cheat
+    class Meta:
+        model = Wall  # TODO this is cheat
         fields = ('x', 'y')
 
 

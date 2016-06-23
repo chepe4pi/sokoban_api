@@ -1,9 +1,10 @@
+from rest_framework.mixins import ListModelMixin
 from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import GenericViewSet
-from rest_framework.mixins import RetrieveModelMixin, ListModelMixin
-from ..serializers.skins import SkinSerializer
-from ..models import Skins
+
 from ..filters.map import SkinFilterSet
+from ..models import Skins
+from ..serializers.skins import SkinSerializer
 
 
 class SkinView(ListModelMixin, GenericViewSet):

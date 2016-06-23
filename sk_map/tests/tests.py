@@ -75,7 +75,7 @@ class MapTestCase(TestCasePermissionsMixin, APITestCase):
         part = {'owner': self.wrong_user.username}
         self.data['owner'] = self.wrong_user.username
         response = self.client.patch(self.obj_url, part)
-        self.assertEqual(response.data['owner'], self.user.username) # TODO response code
+        self.assertEqual(response.data['owner'], self.user.username)  # TODO response code
 
     def test_filter(self):
         self.filter_url = self.url + '?' + urlencode({'owner': self.user.username})
@@ -219,7 +219,7 @@ class WallCreateTestCase(MapObjCreateTestCaseMixin, AuthorizeForTestsMixin, APIT
         self.assertEqual(Wall.objects.filter(x=self.obj.x, y=self.obj.y, map=self.map).count(), 1)
 
 
-class WallTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin, TestCasePermissionPublicMixin,\
+class WallTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin, TestCasePermissionPublicMixin, \
                    TestCasePermissionsMixin, APITestCase):
     url = '/wall/'
 
@@ -242,7 +242,7 @@ class BoxCreateTestCase(MapObjCreateTestCaseMixin, AuthorizeForTestsMixin, APITe
         self.assertEqual(Box.objects.filter(x=self.obj.x, y=self.obj.y, map=self.map).count(), 1)
 
 
-class BoxTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin,\
+class BoxTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin, \
                   TestCasePermissionPublicMixin, TestCasePermissionsMixin, APITestCase):
     url = '/box/'
 
@@ -265,7 +265,7 @@ class PointCreateTestCase(MapObjCreateTestCaseMixin, AuthorizeForTestsMixin, API
         self.assertEqual(Point.objects.filter(x=self.obj.x, y=self.obj.y, map=self.map).count(), 1)
 
 
-class PointTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin, TestCasePermissionPublicMixin,\
+class PointTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin, TestCasePermissionPublicMixin, \
                     TestCasePermissionsMixin, APITestCase):
     url = '/point/'
 
@@ -294,7 +294,7 @@ class MenCreateTestCase(MapObjCreateTestCaseMixin, AuthorizeForTestsMixin, APITe
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 
-class MenTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin, TestCasePermissionPublicMixin,\
+class MenTestCase(MapObjFilterTestCaseMixin, MapObjTestCaseMixin, TestCasePermissionPublicMixin, \
                   TestCasePermissionsMixin, APITestCase):
     url = '/men/'
 

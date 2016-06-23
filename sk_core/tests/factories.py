@@ -1,4 +1,5 @@
 import factory
+
 from sk_auth.tests.factories import UserFactory
 
 
