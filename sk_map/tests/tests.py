@@ -4,7 +4,7 @@ from rest_framework.test import APITestCase
 from sk_core.tests.tests import TestCasePermissionsMixin, AuthorizeForTestsMixin, TestCasePermissionPublicMixin
 from ..serializers.map import MenSerializer, PointSerializer, BoxSerializer, WallSerializer, MapSerializer
 from .factories import WallFactory, MapFactory, PointFactory, MenFactory, BoxFactory
-from sk_game.tests.factories import GameFactory
+from sk_game.tests.factories import UserMapMembershipFactory
 from ..models import Map, Wall, Box, Point, Men
 from faker import Faker
 from mock_django import mock_signal_receiver
@@ -50,7 +50,7 @@ class MapTestCase(TestCasePermissionsMixin, APITestCase):
         self.assertEqual(self.response.data, self.data)
 
     def test_allow_change_public(self):
-        GameFactory(map=self.obj, owner=self.user, done=True)
+        UserMapMembershipFactory(map=self.obj, owner=self.user, done=True)
         states = True, False
         for state in states:
             data = {'public': state}
@@ -186,7 +186,7 @@ class MapObjTestCaseMixin(object):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_signal_change_public(self):
-        GameFactory(map=self.obj.map, owner=self.user, done=True)
+        UserMapMembershipFactory(map=self.obj.map, owner=self.user, done=True)
         public = True
         with mock_signal_receiver(post_save) as receiver:
             response = self.client.patch(self.parent_url, {'public': public})
@@ -200,7 +200,7 @@ class MapObjTestCaseMixin(object):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_deny_change_public_directly(self):
-        GameFactory(map=self.obj.map, owner=self.user, done=True)
+        UserMapMembershipFactory(map=self.obj.map, owner=self.user, done=True)
         self.data = {'public': True}
         response = self.client.put(self.obj_url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)

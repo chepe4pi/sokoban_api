@@ -9,7 +9,6 @@ from ..models import UserMapMembership
 
 
 class GameSerializer(BaseModelSerializer):
-
     def __init__(self, *args, **kwargs):
         fields = kwargs.pop('fields', None)
 
@@ -30,11 +29,18 @@ class GameSerializer(BaseModelSerializer):
 
     def validate_rate(self, value):
         self.map = self._get_map_obj()
-        if value is False or UserMapMembership.objects.filter(owner=self.context['request'].user,
-                                                              map=self.map, done=True).count() > 0:
-            return value
-        else:
-            raise ValidationError(_('First you have to took this map')) # TODO tests
+        try:
+            membership = UserMapMembership.objects.get(owner=self.context['request'].user, map=self.map, done=True)
+            if not membership.rate:
+                if self.instance.map.rating:
+                    old_rating = self.instance.map.rating
+                else:
+                    old_rating = 0
+                new_rating = old_rating + value
+                self.instance.map.rating = new_rating
+                self.instance.map.save()
+        except UserMapMembership.DoesNotExist:
+            raise ValidationError(_('First you have to took this map'))  # TODO tests
 
     def validate_map(self, value):
         if Map.objects.filter(Q(public=True,
@@ -42,15 +48,14 @@ class GameSerializer(BaseModelSerializer):
                                                                  id=self.initial_data['map'])).count() > 0:
             return value
         else:
-            raise ValidationError(_('This Map is not allowed')) # TODO tests
+            raise ValidationError(_('This Map is not allowed'))  # TODO tests
 
     def _get_map_obj(self):
         if 'map' not in self.initial_data:
             self.map = self.instance.map.id
         else:
-            self.map = self.initial_data['map'] # TODO tests
+            self.map = self.initial_data['map']  # TODO tests
         return self.map
-
 
     class Meta:
         model = UserMapMembership

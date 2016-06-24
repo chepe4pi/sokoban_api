@@ -4,7 +4,7 @@ from ..models import UserMapMembership
 from sk_map.tests.factories import MapFactory
 
 
-class GameFactory(OwnableObjBaseFactory):
+class UserMapMembershipFactory(OwnableObjBaseFactory):
     class Meta:
         model = UserMapMembership
 

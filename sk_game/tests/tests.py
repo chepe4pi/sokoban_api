@@ -3,7 +3,7 @@ from rest_framework.test import APITestCase
 from sk_core.tests.tests import AuthorizeForTestsMixin
 from ..models import UserMapMembership
 from faker import Faker
-from .factories import GameFactory
+from .factories import UserMapMembershipFactory
 from sk_map.tests.factories import MapFactory
 
 faker = Faker()
@@ -53,7 +53,10 @@ class GameTestCase(AuthorizeForTestsMixin, APITestCase):
 
     def test_set_rate(self):
         obj = MapFactory()
+        rating = faker.random_int(min=1, max=4)
         self.url = self.url + str(obj.id) + '/'
-        GameFactory(map=obj, owner=self.user, done=True)
-        response = self.client.patch(self.url, {'rate': faker.random_int(min=1, max=4)})
+        UserMapMembershipFactory(map=obj, owner=self.user, done=True)
+        response = self.client.patch(self.url, {'rate': rating})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        obj.refresh_from_db()
+        self.assertEqual(obj.rating, rating)

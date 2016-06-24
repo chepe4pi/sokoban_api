@@ -13,6 +13,7 @@ class Map(AccessibleModel, TimestampableModel):
         related_name='players'
     )
     skin = models.ForeignKey(Skins, default=1)
+    rating = models.IntegerField(help_text="summary rating of map", null=True)
 
 
 class MapLocation(AccessibleModel, TimestampableModel):
