@@ -31,16 +31,13 @@ class GameSerializer(BaseModelSerializer):
         self.map = self._get_map_obj()
         try:
             membership = UserMapMembership.objects.get(owner=self.context['request'].user, map=self.map, done=True)
-            if not membership.rate:
-                if self.instance.map.rating:
-                    old_rating = self.instance.map.rating
-                else:
-                    old_rating = 0
-                new_rating = old_rating + value
-                self.instance.map.rating = new_rating
-                self.instance.map.save()
         except UserMapMembership.DoesNotExist:
             raise ValidationError(_('First you have to took this map'))  # TODO tests
+        if not membership.rate:
+            old_rating = self.instance.map.rating or 0
+            new_rating = old_rating + value
+            self.instance.map.rating = new_rating
+            self.instance.map.save()
 
     def validate_map(self, value):
         if Map.objects.filter(Q(public=True,
