@@ -4,10 +4,9 @@ from sk_map.models import Wall, Box, Point, Men, Map
 
 class MapFilterSet(FilterSet):
     owner = CharFilter(name='owner__username')
-    public = BooleanFilter(name='public')
 
     class Meta:
-        fields = ['owner', 'public']
+        fields = ['owner', 'state']
         model = Map
 
 

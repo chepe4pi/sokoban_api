@@ -3,6 +3,7 @@ from decimal import Decimal
 from rest_framework.test import APITestCase
 
 from sk_auth.tests.factories import UserFactory
+from sk_core.models import STATE_PUBLIC
 from sk_game.tests.factories import UserMapMembershipFactory
 from ..serializers.map import MapSerializer, BoxSerializer, WallSerializer, PointSerializer, MenSerializer
 from .factories import MapFactory, BoxFactory, WallFactory, PointFactory, MenFactory
@@ -18,7 +19,7 @@ class MapTestCase(APITestCase):
             'id': self.obj.id,
             'title': self.obj.title,
             'owner': self.obj.owner.username,
-            'public': self.obj.public,
+            'state': self.obj.state,
             'rating': None
         }
 
@@ -27,7 +28,7 @@ class MapTestCase(APITestCase):
         self.assertEqual(self.data, self.expected)
 
     def test_with_rating(self):
-        self.obj.public = True
+        self.obj.state = STATE_PUBLIC
         self.obj.rating = 11
         other_man = UserFactory(username='other_man')
         other_man2 = UserFactory(username='other_man2')
@@ -36,7 +37,7 @@ class MapTestCase(APITestCase):
         UserMapMembershipFactory(map=self.obj, owner=other_man2, done=True, rate=4)
         self.data = MapSerializer(self.obj).data
         self.expected['rating'] = Decimal('3.67')
-        self.expected['public'] = True
+        self.expected['state'] = STATE_PUBLIC
         self.assertEqual(self.data, self.expected)
 
 

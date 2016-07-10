@@ -1,6 +1,8 @@
 from rest_framework.filters import BaseFilterBackend
 from django.db.models import Q
 
+from sk_core.models import STATE_PUBLIC
+
 
 class IsPublicFilterBackend(BaseFilterBackend):
     """
@@ -8,9 +10,9 @@ class IsPublicFilterBackend(BaseFilterBackend):
     """
     def filter_queryset(self, request, queryset, view):
         if request.user.is_authenticated():
-            return queryset.filter(Q(public=True) | Q(owner=request.user))
+            return queryset.filter(Q(state=STATE_PUBLIC) | Q(owner=request.user))
         else:
-            return queryset.filter(public=True)
+            return queryset.filter(state=STATE_PUBLIC)
 
 
 class IsOwnerFilterBackend(BaseFilterBackend):

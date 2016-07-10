@@ -6,7 +6,7 @@
         "created_at": "2015-12-10T11:50:29.058Z",
         "updated_at": "2015-12-10T12:03:16.816Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "title": "test_map1"
     }
 },
@@ -17,7 +17,7 @@
         "created_at": "2015-12-10T11:52:02.772Z",
         "updated_at": "2015-12-10T12:03:17.071Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 4,
         "y": 3,
         "map": 6
@@ -30,7 +30,7 @@
         "created_at": "2015-12-10T11:53:11.444Z",
         "updated_at": "2015-12-10T12:03:17.072Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 3,
         "y": 3,
         "map": 6
@@ -43,7 +43,7 @@
         "created_at": "2015-12-10T11:54:18.078Z",
         "updated_at": "2015-12-10T12:03:17.076Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 2,
         "y": 3,
         "map": 6
@@ -56,7 +56,7 @@
         "created_at": "2015-12-10T11:54:36.284Z",
         "updated_at": "2015-12-10T12:03:17.077Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 2,
         "y": 4,
         "map": 6
@@ -69,7 +69,7 @@
         "created_at": "2015-12-10T11:56:22.175Z",
         "updated_at": "2015-12-10T12:03:17.068Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 3,
         "y": 1,
         "map": 6
@@ -82,7 +82,7 @@
         "created_at": "2015-12-10T11:56:40.491Z",
         "updated_at": "2015-12-10T12:03:17.067Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 4,
         "y": 1,
         "map": 6
@@ -95,7 +95,7 @@
         "created_at": "2015-12-10T11:56:50.494Z",
         "updated_at": "2015-12-10T12:03:17.066Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 5,
         "y": 1,
         "map": 6
@@ -108,7 +108,7 @@
         "created_at": "2015-12-10T11:57:04.276Z",
         "updated_at": "2015-12-10T12:03:17.065Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 6,
         "y": 1,
         "map": 6
@@ -121,7 +121,7 @@
         "created_at": "2015-12-10T11:57:18.569Z",
         "updated_at": "2015-12-10T12:03:17.064Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 7,
         "y": 1,
         "map": 6
@@ -134,7 +134,7 @@
         "created_at": "2015-12-10T11:57:30.665Z",
         "updated_at": "2015-12-10T12:03:17.063Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 1,
         "y": 2,
         "map": 6
@@ -147,7 +147,7 @@
         "created_at": "2015-12-10T11:57:52.060Z",
         "updated_at": "2015-12-10T12:03:17.061Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 7,
         "y": 2,
         "map": 6
@@ -160,7 +160,7 @@
         "created_at": "2015-12-10T11:58:05.944Z",
         "updated_at": "2015-12-10T12:03:17.060Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 1,
         "y": 3,
         "map": 6
@@ -173,7 +173,7 @@
         "created_at": "2015-12-10T11:58:18.437Z",
         "updated_at": "2015-12-10T12:03:17.059Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 7,
         "y": 3,
         "map": 6
@@ -186,7 +186,7 @@
         "created_at": "2015-12-10T11:58:27.666Z",
         "updated_at": "2015-12-10T12:03:17.058Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 1,
         "y": 4,
         "map": 6
@@ -199,7 +199,7 @@
         "created_at": "2015-12-10T11:58:45.150Z",
         "updated_at": "2015-12-10T12:03:17.056Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 7,
         "y": 4,
         "map": 6
@@ -212,7 +212,7 @@
         "created_at": "2015-12-10T11:58:53.593Z",
         "updated_at": "2015-12-10T12:03:17.055Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 1,
         "y": 5,
         "map": 6
@@ -225,7 +225,7 @@
         "created_at": "2015-12-10T11:59:03.483Z",
         "updated_at": "2015-12-10T12:03:17.054Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 2,
         "y": 5,
         "map": 6
@@ -238,7 +238,7 @@
         "created_at": "2015-12-10T11:59:13.443Z",
         "updated_at": "2015-12-10T12:03:17.053Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 3,
         "y": 5,
         "map": 6
@@ -251,7 +251,7 @@
         "created_at": "2015-12-10T11:59:19.796Z",
         "updated_at": "2015-12-10T12:03:17.052Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 4,
         "y": 5,
         "map": 6
@@ -264,7 +264,7 @@
         "created_at": "2015-12-10T11:59:26.746Z",
         "updated_at": "2015-12-10T12:03:17.051Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 5,
         "y": 5,
         "map": 6
@@ -277,7 +277,7 @@
         "created_at": "2015-12-10T11:59:33.694Z",
         "updated_at": "2015-12-10T12:03:17.050Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 6,
         "y": 5,
         "map": 6
@@ -290,7 +290,7 @@
         "created_at": "2015-12-10T11:59:42.195Z",
         "updated_at": "2015-12-10T12:03:17.049Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 7,
         "y": 5,
         "map": 6
@@ -303,7 +303,7 @@
         "created_at": "2015-12-10T12:03:05.473Z",
         "updated_at": "2015-12-10T12:03:17.047Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 2,
         "y": 2,
         "map": 6
@@ -316,7 +316,7 @@
         "created_at": "2015-12-10T11:53:45.988Z",
         "updated_at": "2015-12-10T12:03:17.080Z",
         "owner": 1,
-        "public": true,
+       "state": 1,
         "x": 6,
         "y": 3,
         "map": 6

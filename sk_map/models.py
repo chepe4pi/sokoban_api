@@ -1,10 +1,10 @@
 from django.db import models
-from sk_core.models import AccessibleModel, TimestampableModel
+from sk_core.models import TimestampableModel, StatebleModel, OwnableModel
 from django.contrib.auth.models import User
 from sk_skins.models import Skins
 
 
-class Map(AccessibleModel, TimestampableModel):
+class Map(StatebleModel, OwnableModel, TimestampableModel):
     title = models.CharField(max_length=255, help_text='title of map')
     players = models.ManyToManyField(
         User,
@@ -16,7 +16,7 @@ class Map(AccessibleModel, TimestampableModel):
     rating = models.IntegerField(help_text="summary rating of map", null=True)
 
 
-class MapLocation(AccessibleModel, TimestampableModel):
+class MapLocation(StatebleModel, OwnableModel, TimestampableModel):
 
     x = models.PositiveSmallIntegerField(help_text='position by x coordinate')
     y = models.PositiveSmallIntegerField(help_text='position by y coordinate')
@@ -25,7 +25,7 @@ class MapLocation(AccessibleModel, TimestampableModel):
         abstract = True
 
     def __str__(self):
-        return ' '.join([str(self.id), str(self.public), str(self.owner), '-', str(self.x), str(self.y)])
+        return ' '.join([str(self.id), str(self.state), str(self.owner), '-', str(self.x), str(self.y)])
 
 
 class OnMap(MapLocation):

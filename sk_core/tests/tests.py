@@ -1,6 +1,8 @@
 from sk_auth.tests.factories import UserFactory
 from rest_framework import status
 
+from sk_core.models import STATE_PUBLIC
+
 
 class AuthorizeForTestsMixin(object):
     def setUp(self):
@@ -27,7 +29,7 @@ class BasePermissionTestMixin(BaseTestMixin):
 
 class TestCasePermissionPublicMixin(BasePermissionTestMixin):
     def test_allow_get_unauthorized_if_public(self):
-        setattr(self.obj, 'public', True)
+        setattr(self.obj, 'state', STATE_PUBLIC)
         self.obj.save()
         self.client.logout()
         response = self.client.get(self.obj_url)
@@ -35,14 +37,14 @@ class TestCasePermissionPublicMixin(BasePermissionTestMixin):
 
     def test_allow_get_public_obj(self):
         self.client.force_authenticate(user=self.wrong_user)
-        self.obj.public = True
+        self.obj.public = STATE_PUBLIC
         self.obj.save()
         response = self.client.get(self.obj_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_deny_change_public_obj(self):
         self.client.force_authenticate(user=self.wrong_user)
-        self.obj.public = True
+        self.obj.public = STATE_PUBLIC
         self.obj.save()
         response = self.client.delete(self.obj_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

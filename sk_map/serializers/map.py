@@ -2,8 +2,9 @@ from decimal import Decimal
 
 from rest_framework import serializers
 
+from sk_core.models import STATE_PUBLIC, STATE_PRIVATE
 from sk_core.serializer import BaseModelSerializer
-from ..models import Wall, Box, Point, Men, Map, MapLocation
+from ..models import Wall, Box, Point, Men, Map
 from sk_game.models import UserMapMembership
 from rest_framework.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
@@ -37,22 +38,23 @@ class MenSerializer(MapObjectSerializerMixin):
 class MapSerializer(BaseModelSerializer):
     rating = serializers.SerializerMethodField()
 
-    def validate_public(self, value):
-        if value is False or UserMapMembership.objects.filter(owner=self.context['request'].user,
-                                                              map=self.instance.id, done=True).count() > 0:
-            return value
-        else:
-            raise ValidationError(_('First you have to took this map'))
-
     def get_rating(self, instance):
         rating = instance.rating
         players_count = UserMapMembership.objects.filter(map=instance).exclude(rate=None).count()
         if rating and players_count:
             return round(Decimal(rating / players_count), 2)
 
+    def validate_state(self, value):
+        if value == STATE_PUBLIC:
+            if self.instance.state == STATE_PRIVATE:
+                return value
+            else:
+                raise ValidationError(_('First you have to took this map'))
+        return value
+
     class Meta:
         model = Map
-        fields = ('id', 'title', 'owner', 'public', 'rating')
+        fields = ('id', 'title', 'owner', 'rating', 'state')
         extra_kwargs = {'rating': {'read_only': True}}
 
 

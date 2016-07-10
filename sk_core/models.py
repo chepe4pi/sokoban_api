@@ -1,6 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+STATE_INITIAL = 0
+STATE_PUBLIC = 1
+STATE_PRIVATE = 2
+STATE_DELETED = 3
+
+STATE_CHOICES = (
+    (STATE_INITIAL, 'initial'),
+    (STATE_PUBLIC, 'ready / public'),
+    (STATE_PRIVATE, 'hidden / private'),
+    (STATE_DELETED, 'deleted'),
+)
+
 
 class TimestampableModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -20,11 +32,17 @@ class OwnableModel(models.Model):
         return ' '.join([str(self.id), str(self.owner)]) # TODO More ellegant way
 
 
-class AccessibleModel(OwnableModel):
-    public = models.BooleanField(default=False, help_text='object show for everyone or only for owner')
+class StatebleModel(models.Model):
+    STATE_INITIAL = STATE_INITIAL
+    STATE_PUBLIC = STATE_PUBLIC
+    STATE_PRIVATE = STATE_PRIVATE
+    STATE_DELETED = STATE_DELETED
+
+    STATE_CHOICES = STATE_CHOICES
+
+    state = models.PositiveSmallIntegerField(choices=STATE_CHOICES,
+                                             default=STATE_INITIAL,
+                                             help_text='status of object - initial / public / private / deleted')
 
     class Meta:
         abstract = True
-
-    def __str__(self):
-        return ' '.join([str(self.id), str(self.public), str(self.owner)]) # TODO More ellegant way

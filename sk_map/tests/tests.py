@@ -1,6 +1,8 @@
 from rest_framework import status
 from django.utils.http import urlencode
 from rest_framework.test import APITestCase
+
+from sk_core.models import STATE_PUBLIC, STATE_PRIVATE, STATE_INITIAL, STATE_DELETED
 from sk_core.tests.tests import TestCasePermissionsMixin, AuthorizeForTestsMixin, TestCasePermissionPublicMixin
 from ..serializers.map import MenSerializer, PointSerializer, BoxSerializer, WallSerializer, MapSerializer
 from .factories import WallFactory, MapFactory, PointFactory, MenFactory, BoxFactory
@@ -51,15 +53,15 @@ class MapTestCase(TestCasePermissionsMixin, APITestCase):
 
     def test_allow_change_public(self):
         UserMapMembershipFactory(map=self.obj, owner=self.user, done=True)
-        states = True, False
+        states = (STATE_PRIVATE, STATE_PUBLIC, STATE_INITIAL, STATE_DELETED)
         for state in states:
-            data = {'public': state}
+            data = {'state': state}
             response = self.client.patch(self.obj_url, data)
             self.assertEqual(response.status_code, status.HTTP_200_OK)
-            self.assertEqual(data['public'], response.data['public'])
+            self.assertEqual(data['state'], response.data['state'])
 
     def test_deny_change_public_if_no_done(self):
-        self.data = {'public': True}
+        self.data = {'state': STATE_PUBLIC}
         response = self.client.put(self.obj_url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -84,7 +86,7 @@ class MapTestCase(TestCasePermissionsMixin, APITestCase):
         self.assertIn(self.data, response.data)
 
     def test_allow_get_unauthorized_if_public(self):
-        setattr(self.obj, 'public', True)
+        setattr(self.obj, 'state', STATE_PUBLIC)
         self.obj.save()
         self.client.logout()
         response = self.client.get(self.obj_url)
@@ -96,7 +98,7 @@ class MapObjCreateTestCaseMixin(object):
         abstract = True
 
     def setUp(self):
-        super(MapObjCreateTestCaseMixin, self).setUp()
+        super().setUp()
         self.map = MapFactory()
         self.obj.map = self.map
 
@@ -187,9 +189,9 @@ class MapObjTestCaseMixin(object):
 
     def test_signal_change_public(self):
         UserMapMembershipFactory(map=self.obj.map, owner=self.user, done=True)
-        public = True
+        public = STATE_PUBLIC
         with mock_signal_receiver(post_save) as receiver:
-            response = self.client.patch(self.parent_url, {'public': public})
+            response = self.client.patch(self.parent_url, {'state': public})
             self.assertNotEqual(receiver.call_count, 0)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -201,7 +203,7 @@ class MapObjTestCaseMixin(object):
 
     def test_deny_change_public_directly(self):
         UserMapMembershipFactory(map=self.obj.map, owner=self.user, done=True)
-        self.data = {'public': True}
+        self.data = {'state': STATE_PUBLIC}
         response = self.client.put(self.obj_url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
