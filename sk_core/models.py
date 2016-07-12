@@ -14,6 +14,11 @@ STATE_CHOICES = (
 )
 
 
+class NotDeletedQuerySet(models.QuerySet):
+    def objects(self):
+        return self.exclude(state=STATE_DELETED)
+
+
 class TimestampableModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -33,6 +38,8 @@ class OwnableModel(models.Model):
 
 
 class StatebleModel(models.Model):
+    objects = NotDeletedQuerySet().as_manager()
+
     STATE_INITIAL = STATE_INITIAL
     STATE_PUBLIC = STATE_PUBLIC
     STATE_PRIVATE = STATE_PRIVATE

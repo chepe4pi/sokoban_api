@@ -122,6 +122,13 @@ class MapTestCase(TestCasePermissionsMixin, APITestCase):
         response = self.client.get(self.obj_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+    def test_not_show_deleted(self):
+        setattr(self.obj, 'state', STATE_DELETED)
+        self.obj.save()
+        self.obj.refresh_from_db()
+        response = self.client.get(self.obj_url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
 
 class MapObjCreateTestCaseMixin(object):
     class Meta:

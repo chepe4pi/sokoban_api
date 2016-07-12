@@ -12,7 +12,6 @@ from django.utils.translation import ugettext_lazy as _
 
 class MapObjectSerializerMixin(BaseModelSerializer):
     class Meta:
-        # TODO change only if initial
         fields = ('id', 'x', 'y', 'map')
 
 
