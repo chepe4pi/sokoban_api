@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from rest_framework import serializers
 
-from sk_core.models import STATE_PUBLIC, STATE_PRIVATE
+from sk_core.models import STATE_PUBLIC, STATE_PRIVATE, STATE_INITIAL
 from sk_core.serializer import BaseModelSerializer
 from ..models import Wall, Box, Point, Men, Map
 from sk_game.models import UserMapMembership
@@ -12,6 +12,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class MapObjectSerializerMixin(BaseModelSerializer):
     class Meta:
+        # TODO change only if initial
         fields = ('id', 'x', 'y', 'map')
 
 
@@ -50,6 +51,9 @@ class MapSerializer(BaseModelSerializer):
                 return value
             else:
                 raise ValidationError(_('First you have to took this map'))
+        elif value == STATE_INITIAL:
+            UserMapMembership.objects.filter(map=self.instance, owner=self.instance.owner).update(done=False)
+            return value
         return value
 
     class Meta:

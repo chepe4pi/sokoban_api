@@ -51,18 +51,48 @@ class MapTestCase(TestCasePermissionsMixin, APITestCase):
         super(MapTestCase, self).test_allow_get_own_obj()
         self.assertEqual(self.response.data, self.data)
 
-    def test_allow_change_public(self):
+    def test_allow_change_public_if_private(self):
         UserMapMembershipFactory(map=self.obj, owner=self.user, done=True)
-        states = (STATE_PRIVATE, STATE_PUBLIC, STATE_INITIAL, STATE_DELETED)
+        self.obj.state = STATE_PRIVATE
+        self.obj.save()
+        data = {'state': STATE_PUBLIC}
+        response = self.client.patch(self.obj_url, data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(data['state'], response.data['state'])
+
+    def test_allow_change_private_if_public(self):
+        UserMapMembershipFactory(map=self.obj, owner=self.user, done=True)
+        self.obj.state = STATE_PUBLIC
+        self.obj.save()
+        data = {'state': STATE_PRIVATE}
+        response = self.client.patch(self.obj_url, data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(data['state'], response.data['state'])
+
+    def test_deny_change_public_if_other_state(self):
+        UserMapMembershipFactory(map=self.obj, owner=self.user, done=True)
+        states = (STATE_INITIAL, STATE_DELETED)
         for state in states:
-            data = {'state': state}
+            self.obj.state = state
+            self.obj.save()
+            data = {'state': STATE_PUBLIC}
             response = self.client.patch(self.obj_url, data)
-            self.assertEqual(response.status_code, status.HTTP_200_OK)
-            self.assertEqual(data['state'], response.data['state'])
+            self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_set_to_done_if_initial(self):
+        membership = UserMapMembershipFactory(map=self.obj, owner=self.user, done=True)
+        self.obj.state = STATE_PRIVATE
+        self.obj.save()
+        data = {'state': STATE_INITIAL}
+        response = self.client.patch(self.obj_url, data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        membership.refresh_from_db()
+        self.assertEqual(membership.done, False)
+        self.assertEqual(data['state'], response.data['state'])
 
     def test_deny_change_public_if_no_done(self):
         self.data = {'state': STATE_PUBLIC}
-        response = self.client.put(self.obj_url, self.data)
+        response = self.client.patch(self.obj_url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_allow_patch(self):
@@ -187,8 +217,10 @@ class MapObjTestCaseMixin(object):
         response = self.client.put(self.obj_url, self.part)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_signal_change_public(self):
+    def test_signal_change_public_if_private(self):
         UserMapMembershipFactory(map=self.obj.map, owner=self.user, done=True)
+        self.obj.map.state = STATE_INITIAL
+        self.obj.map.save()
         public = STATE_PUBLIC
         with mock_signal_receiver(post_save) as receiver:
             response = self.client.patch(self.parent_url, {'state': public})
@@ -200,6 +232,18 @@ class MapObjTestCaseMixin(object):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         response = self.client.get(self.parent_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_deny_change_public_if_not_private(self):
+        UserMapMembershipFactory(map=self.obj.map, owner=self.user, done=True)
+        public = STATE_PUBLIC
+        for state in (STATE_INITIAL, STATE_DELETED):
+            self.obj.map.state = state
+            self.obj.map.save()
+            with mock_signal_receiver(post_save) as receiver:
+                response = self.client.patch(self.parent_url, {'state': public})
+                self.assertEqual(receiver.call_count, 0)
+            self.obj.map.refresh_from_db()
+            self.assertNotEqual(self.obj.map.state, STATE_PUBLIC)
 
     def test_deny_change_public_directly(self):
         UserMapMembershipFactory(map=self.obj.map, owner=self.user, done=True)
