@@ -254,6 +254,14 @@ class MapObjTestCaseMixin(object):
         response = self.client.put(self.obj_url, self.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
+    def test_signal_state_deleted_hide_childs(self):
+        with mock_signal_receiver(post_save) as receiver:
+            self.client.patch(self.parent_url, {'state': STATE_DELETED})
+            self.assertNotEqual(receiver.call_count, 0)
+
+        response = self.client.get(self.parent_url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
 
 class WallCreateTestCase(MapObjCreateTestCaseMixin, AuthorizeForTestsMixin, APITestCase):
     url = '/wall/'
