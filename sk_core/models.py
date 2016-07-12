@@ -14,9 +14,9 @@ STATE_CHOICES = (
 )
 
 
-class NotDeletedQuerySet(models.QuerySet):
-    def objects(self):
-        return self.exclude(state=STATE_DELETED)
+class NotDeletedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().exclude(state=STATE_DELETED)
 
 
 class TimestampableModel(models.Model):
@@ -38,14 +38,14 @@ class OwnableModel(models.Model):
 
 
 class StatebleModel(models.Model):
-    objects = NotDeletedQuerySet().as_manager()
-
     STATE_INITIAL = STATE_INITIAL
     STATE_PUBLIC = STATE_PUBLIC
     STATE_PRIVATE = STATE_PRIVATE
     STATE_DELETED = STATE_DELETED
 
     STATE_CHOICES = STATE_CHOICES
+
+    objects = NotDeletedManager()
 
     state = models.PositiveSmallIntegerField(choices=STATE_CHOICES,
                                              default=STATE_INITIAL,
