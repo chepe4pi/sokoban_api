@@ -59,7 +59,8 @@ class MapSerializer(BaseModelSerializer):
     class Meta:
         model = Map
         fields = ('id', 'title', 'owner', 'rating', 'state')
-        extra_kwargs = {'rating': {'read_only': True}}
+        extra_kwargs = {'rating': {'read_only': True},
+                        'owner': {'read_only': True}}
 
 
 class LocationSerializer(BaseModelSerializer):

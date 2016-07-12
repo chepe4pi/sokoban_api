@@ -219,7 +219,7 @@ class MapObjTestCaseMixin(object):
 
     def test_signal_change_public_if_private(self):
         UserMapMembershipFactory(map=self.obj.map, owner=self.user, done=True)
-        self.obj.map.state = STATE_INITIAL
+        self.obj.map.state = STATE_PRIVATE
         self.obj.map.save()
         public = STATE_PUBLIC
         with mock_signal_receiver(post_save) as receiver:

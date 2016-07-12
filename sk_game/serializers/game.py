@@ -62,4 +62,5 @@ class GameSerializer(BaseModelSerializer):
     class Meta:
         model = UserMapMembership
         fields = ('rate', 'done', 'steps', 'map')
-        extra_kwargs = {'steps': {'write_only': True}, 'done': {'read_only': True}}
+        extra_kwargs = {'steps': {'write_only': True},
+                        'done': {'read_only': True}}

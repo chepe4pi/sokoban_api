@@ -1,7 +1,7 @@
 from rest_framework.filters import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from sk_core.filters.backends import IsPublicFilterBackend
-from sk_core.permissions import IsOwnerAndObjPrivateOrReadOnlyIfPublic
+from sk_core.permissions import MapObjectPermission, MapPermission
 from sk_core.views import BaseModelViewSet
 from ..filters.filters import WallFilterSet, BoxFilterSet, PointFilterSet, MenFilterSet, MapFilterSet
 from ..models import Map, Wall, Box, Point, Men
@@ -11,7 +11,7 @@ from ..serializers.map import MapSerializer, WallSerializer, BoxSerializer, Poin
 class MapObjectsBaseViewSet(BaseModelViewSet):
 
     filter_backends = (DjangoFilterBackend, IsPublicFilterBackend)
-    permission_classes = [IsOwnerAndObjPrivateOrReadOnlyIfPublic, IsAuthenticatedOrReadOnly]
+    permission_classes = [MapObjectPermission, IsAuthenticatedOrReadOnly]
 
     def list(self, request, *args, **kwargs):
         """
@@ -57,6 +57,7 @@ class MapViewSet(MapObjectsBaseViewSet):
     """
     queryset = Map.objects.all()
     serializer_class = MapSerializer
+    permission_classes = [MapPermission, IsAuthenticatedOrReadOnly]
 
     def retrieve(self, request, *args, **kwargs):
         """
