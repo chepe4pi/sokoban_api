@@ -1,13 +1,13 @@
 from decimal import Decimal
 
-from rest_framework import serializers
-
-from sk_core.models import STATE_PUBLIC, STATE_PRIVATE, STATE_INITIAL
-from sk_core.serializer import BaseModelSerializer
-from ..models import Wall, Box, Point, Men, Map
-from sk_game.models import UserMapMembership
-from rest_framework.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
+from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
+
+from sk_core.models import STATE_PUBLIC, STATE_PRIVATE, STATE_INITIAL, STATE_DELETED
+from sk_core.serializer import BaseModelSerializer
+from sk_game.models import UserMapMembership
+from ..models import Wall, Box, Point, Men, Map
 
 
 class MapObjectSerializerMixin(BaseModelSerializer):
@@ -45,11 +45,9 @@ class MapSerializer(BaseModelSerializer):
             return round(Decimal(rating / players_count), 2)
 
     def validate_state(self, value):
-        if value == STATE_PUBLIC:
-            if self.instance.state == STATE_PRIVATE:
-                return value
-            else:
-                raise ValidationError(_('First you have to took this map'))
+        if self.instance.state == STATE_INITIAL and value in (STATE_PRIVATE, STATE_PUBLIC):
+            raise ValidationError(_('First you have to took this map'))
+
         elif value == STATE_INITIAL:
             UserMapMembership.objects.filter(map=self.instance, owner=self.instance.owner).update(done=False)
             return value

@@ -126,6 +126,22 @@ class MapTestCase(TestCasePermissionsMixin, APITestCase):
         response = self.client.get(self.obj_url)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
+    def test_deny_public_from_init(self):
+        setattr(self.obj, 'state', STATE_INITIAL)
+        self.obj.save()
+        data = {'state': STATE_PUBLIC}
+        response = self.client.patch(self.obj_url, data)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_deny_private_from_init(self):
+        setattr(self.obj, 'state', STATE_INITIAL)
+        self.obj.save()
+        data = {'state': STATE_PRIVATE}
+        response = self.client.patch(self.obj_url, data)
+        self.obj.refresh_from_db()
+        self.assertEqual(self.obj.state, STATE_INITIAL)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
 
 class MapObjCreateTestCaseMixin(object):
     class Meta:
