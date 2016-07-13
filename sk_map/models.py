@@ -1,10 +1,24 @@
 from django.db import models
-from sk_core.models import TimestampableModel, StatebleModel, OwnableModel
+from django_fsm import FSMField, transition
+
+from sk_core.models import TimestampableModel, StatebleModel, OwnableModel, STATE_INITIAL, STATE_CHOICES, STATE_PRIVATE, \
+    STATE_PUBLIC, STATE_DELETED, NotDeletedManager
 from django.contrib.auth.models import User
 from sk_skins.models import Skins
 
 
-class Map(StatebleModel, OwnableModel, TimestampableModel):
+STATE_CHOICES_MAP = (
+    (STATE_INITIAL, 'initial', 'Map'),
+    (STATE_PUBLIC, 'ready / public', 'Map'),
+    (STATE_PRIVATE, 'hidden / private', 'Map'),
+    (STATE_DELETED, 'deleted', 'Map'),
+)
+
+
+class Map(OwnableModel, TimestampableModel):
+
+    STATE_CHOICES = STATE_CHOICES_MAP
+
     title = models.CharField(max_length=255, help_text='title of map')
     players = models.ManyToManyField(
         User,
@@ -14,6 +28,25 @@ class Map(StatebleModel, OwnableModel, TimestampableModel):
     )
     skin = models.ForeignKey(Skins, default=1)
     rating = models.IntegerField(help_text="summary rating of map", null=True)
+    state = FSMField(default=STATE_INITIAL, state_choices=STATE_CHOICES)
+
+    objects = NotDeletedManager()
+
+    @transition(field=state, source=STATE_PRIVATE, target=STATE_PUBLIC)
+    def publish(self):
+        pass
+
+    @transition(field=state, source=STATE_PUBLIC, target=STATE_PRIVATE)
+    def unpublish(self):
+        pass
+
+    @transition(field=state, source=STATE_DELETED, target='*')
+    def block_change_state_deleted(self):
+        raise NotImplementedError
+
+    @transition(field=state, source=STATE_PUBLIC, target=STATE_DELETED)
+    def block_delete_published(self):
+        raise NotImplementedError
 
 
 class MapLocation(StatebleModel, OwnableModel, TimestampableModel):
