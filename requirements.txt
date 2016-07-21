@@ -20,4 +20,3 @@ python-dateutil==2.5.3
 setuptools==23.0.0
 six==1.10.0
 wheel==0.29.0
-django-fsm==2.4.0
