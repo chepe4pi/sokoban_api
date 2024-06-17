@@ -1,67 +1,82 @@
 new Vue({
   el: '#app',
   data: {
-    gameMap: [
-      [0, 0, 0, 0, 0],
-      [0, 1, 2, 3, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0]
+    board: [
+      [' ', ' ', ' ', ' ', ' '],
+      [' ', '#', '#', '#', ' '],
+      [' ', '#', '@', '$', ' '],
+      [' ', '#', '.', '#', ' '],
+      [' ', ' ', ' ', ' ', ' '],
     ],
-    playerPosition: { x: 1, y: 1 }
+    playerPosition: { x: 2, y: 2 }
   },
   methods: {
-    getCellClass(cell) {
-      if (cell === 0) return 'cell';
-      else if (cell === 1) return 'cell player';
-      else if (cell === 2) return 'cell box';
-      else if (cell === 3) return 'cell goal';
-    },
-    handleKey(event) {
-      console.log('Key pressed: ', event.key);
+    movePlayer(dx, dy) {
+      const newX = this.playerPosition.x + dx;
+      const newY = this.playerPosition.y + dy;
 
-      let newX = this.playerPosition.x;
-      let newY = this.playerPosition.y;
+      if (this.board[newY][newX] === '#') return;
 
-      if (event.key === 'ArrowUp') newY--;
-      else if (event.key === 'ArrowDown') newY++;
-      else if (event.key === 'ArrowLeft') newX--;
-      else if (event.key === 'ArrowRight') newX++;
+      if (this.board[newY][newX] === '$') {
+        const boxNewX = newX + dx;
+        const boxNewY = newY + dy;
 
-      console.log(`Attempting to move to (${newX}, ${newY})`);
-
-      let targetCell = this.gameMap[newY][newX];
-      console.log(`Target cell value: ${targetCell}`);
-
-      if (targetCell === 0 || targetCell === 3) {
-        console.log('Moving player...');
-        this.updatePlayerPosition(newX, newY);
-      } else if (targetCell === 2) {
-        let boxNewX = newX + (newX - this.playerPosition.x);
-        let boxNewY = newY + (newY - this.playerPosition.y);
-
-        console.log(`Attempting to move box to (${boxNewX}, ${boxNewY})`);
-
-        if (this.gameMap[boxNewY][boxNewX] === 0 || this.gameMap[boxNewY][boxNewX] === 3) {
-          console.log('Moving box...');
-          this.gameMap[newY][newX] = 0;
-          this.gameMap[boxNewY][boxNewX] = 2;
-          this.updatePlayerPosition(newX, newY);
+        if (this.board[boxNewY][boxNewX] === ' ' || this.board[boxNewY][boxNewX] === '.') {
+          this.$set(this.board[newY], newX, ' ');
+          this.$set(this.board[boxNewY], boxNewX, '$');
+        } else {
+          return;
         }
       }
-    },
-    updatePlayerPosition(newX, newY) {
-      console.log(`Updating player position to (${newX}, ${newY})`);
-      this.gameMap[this.playerPosition.y][this.playerPosition.x] = 0;
+
+      this.$set(this.board[this.playerPosition.y], this.playerPosition.x, ' ');
+      this.$set(this.board[newY], newX, '@');
       this.playerPosition.x = newX;
       this.playerPosition.y = newY;
-      this.gameMap[newY][newX] = 1;
+    },
+    handleKeydown(event) {
+      switch (event.key) {
+        case 'ArrowUp':
+          this.movePlayer(0, -1);
+          break;
+        case 'ArrowDown':
+          this.movePlayer(0, 1);
+          break;
+        case 'ArrowLeft':
+          this.movePlayer(-1, 0);
+          break;
+        case 'ArrowRight':
+          this.movePlayer(1, 0);
+          break;
+      }
     }
   },
   mounted() {
-    window.addEventListener('keydown', this.handleKey);
+    window.addEventListener('keydown', this.handleKeydown);
   },
   beforeDestroy() {
-    window.removeEventListener('keydown', this.handleKey);
+    window.removeEventListener('keydown', this.handleKeydown);
+  },
+  template: `
+    <div id="game-board">
+      <div v-for="(row, rowIndex) in board" :key="rowIndex">
+        <div v-for="(cell, cellIndex) in row" :key="cellIndex" :class="getClass(cell)">
+          {{ cell }}
+        </div>
+      </div>
+    </div>
+  `,
+  computed: {
+    getClass() {
+      return (cell) => {
+        switch(cell) {
+          case '#': return 'cell wall';
+          case '@': return 'cell player';
+          case '$': return 'cell box';
+          case '.': return 'cell target';
+          default: return 'cell';
+        }
+      }
+    }
   }
 });
