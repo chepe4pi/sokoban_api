@@ -2,13 +2,14 @@ new Vue({
   el: '#app',
   data: {
     board: [
-      [' ', ' ', ' ', ' ', ' '],
-      [' ', '#', '#', '#', ' '],
-      [' ', '#', '@', '$', ' '],
-      [' ', '#', '.', '#', ' '],
-      [' ', ' ', ' ', ' ', ' '],
+      ['#', '#', '#', '#', '#', '#'],
+      ['#', ' ', ' ', '$', '.', '#'],
+      ['#', ' ', '#', ' ', ' ', '#'],
+      ['#', ' ', '@', ' ', ' ', '#'],
+      ['#', ' ', ' ', ' ', ' ', '#'],
+      ['#', '#', '#', '#', '#', '#'],
     ],
-    playerPosition: { x: 2, y: 2 }
+    playerPosition: { x: 2, y: 3 }
   },
   methods: {
     movePlayer(dx, dy) {
@@ -37,16 +38,16 @@ new Vue({
     handleKeydown(event) {
       switch (event.key) {
         case 'ArrowUp':
-          this.movePlayer(0, -1);
+          this.movePlayer(0, -1);  // Move up
           break;
         case 'ArrowDown':
-          this.movePlayer(0, 1);
+          this.movePlayer(0, 1);   // Move down
           break;
         case 'ArrowLeft':
-          this.movePlayer(-1, 0);
+          this.movePlayer(-1, 0);  // Move left
           break;
         case 'ArrowRight':
-          this.movePlayer(1, 0);
+          this.movePlayer(1, 0);   // Move right
           break;
       }
     }
@@ -58,10 +59,11 @@ new Vue({
     window.removeEventListener('keydown', this.handleKeydown);
   },
   template: `
-    <div id="game-board">
-      <div v-for="(row, rowIndex) in board" :key="rowIndex">
-        <div v-for="(cell, cellIndex) in row" :key="cellIndex" :class="getClass(cell)">
-          {{ cell }}
+    <div>
+      <h1 style="color: #444">Sokoban Game</h1>
+      <div id="game-board" :style="{ gridTemplateColumns: 'repeat(' + board[0].length + ', 1fr)' }">
+        <div v-for="(row, rowIndex) in board" :key="rowIndex">
+          <div v-for="(cell, cellIndex) in row" :key="cellIndex" :class="getClass(cell)"></div>
         </div>
       </div>
     </div>
@@ -74,7 +76,7 @@ new Vue({
           case '@': return 'cell player';
           case '$': return 'cell box';
           case '.': return 'cell target';
-          default: return 'cell';
+          default: return 'cell empty';
         }
       }
     }
