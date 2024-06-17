@@ -1,3 +1,5 @@
+from django.shortcuts import render
+
 from sk_core.filters.backends import IsOwnerFilterBackend
 from sk_core.views import BaseModelViewSet
 from rest_framework.viewsets import ModelViewSet
@@ -5,6 +7,10 @@ from ..models import UserMapMembership
 from rest_framework.permissions import IsAuthenticated
 from ..serializers.game import GameSerializer
 from rest_framework.exceptions import ValidationError
+
+
+def orders_page_new(request):
+    return render(request, 'main.html')
 
 
 class GameViewSet(BaseModelViewSet, ModelViewSet):
