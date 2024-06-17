@@ -9,7 +9,7 @@ __pycache__/
 .idea/
 
 # static files
-static/
+#static/
 
 # Distribution / packaging
 .Python
@@ -62,4 +62,4 @@ docs/_build/
 # PyBuilder
 target/
 
-db.sqlite3
+#db.sqlite3
