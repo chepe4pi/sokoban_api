@@ -11,7 +11,7 @@ class TimestampableModel(models.Model):
 
 
 class OwnableModel(models.Model):
-    owner = models.ForeignKey(User)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         abstract = True

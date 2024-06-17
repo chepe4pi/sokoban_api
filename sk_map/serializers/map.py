@@ -6,7 +6,6 @@ from sk_core.serializer import BaseModelSerializer
 from ..models import Wall, Box, Point, Men, Map, MapLocation
 from sk_game.models import UserMapMembership
 from rest_framework.exceptions import ValidationError
-from django.utils.translation import ugettext_lazy as _
 
 
 class MapObjectSerializerMixin(BaseModelSerializer):
@@ -42,7 +41,7 @@ class MapSerializer(BaseModelSerializer):
                                                               map=self.instance.id, done=True).count() > 0:
             return value
         else:
-            raise ValidationError(_('First you have to took this map'))
+            raise ValidationError('First you have to took this map')
 
     def get_rating(self, instance):
         rating = instance.rating

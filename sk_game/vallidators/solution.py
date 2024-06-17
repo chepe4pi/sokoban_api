@@ -1,5 +1,4 @@
 from rest_framework.exceptions import ValidationError
-from django.utils.translation import ugettext_lazy as _
 from sk_map.serializers.map import MapDetailSerializer
 from sk_map.models import Map
 from collections import OrderedDict
@@ -19,7 +18,7 @@ class GameSolutionValidator(object):
         self.map = MapDetailSerializer(Map.objects.get(id=map)).data
         self.solution = solution
         if not self.map['wall_set'] or not self.map['box_set'] or not self.map['men'] or not self.map['point_set']:
-            raise ValidationError(_('Invalid map'))
+            raise ValidationError('Invalid map')
 
     def create_matrix(self, data):
         """
@@ -32,7 +31,7 @@ class GameSolutionValidator(object):
         elif isinstance(data, OrderedDict) or isinstance(data, dict):
             result = np.array([data['x'], data['y']])
         else:
-            raise ValidationError(_('Invalid data'))
+            raise ValidationError('Invalid data')
         return result
 
     def __call__(self):

@@ -1,4 +1,3 @@
-from rest_framework.filters import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from sk_core.filters.backends import IsPublicFilterBackend
 from sk_core.permissions import IsOwnerOrReadOnlyIfPublic
@@ -10,7 +9,7 @@ from ..serializers.map import MapSerializer, WallSerializer, BoxSerializer, Poin
 
 class MapObjectsBaseViewSet(BaseModelViewSet):
 
-    filter_backends = (DjangoFilterBackend, IsPublicFilterBackend)
+    filter_backends = (IsPublicFilterBackend,)
     permission_classes = [IsOwnerOrReadOnlyIfPublic, IsAuthenticatedOrReadOnly]
 
     def list(self, request, *args, **kwargs):

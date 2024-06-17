@@ -1,5 +1,4 @@
 from django.db.models import Q
-from django.utils.translation import ugettext_lazy as _
 from rest_framework.exceptions import ValidationError
 
 from sk_core.serializer import BaseModelSerializer
@@ -25,14 +24,14 @@ class GameSerializer(BaseModelSerializer):
         if solution.is_valid():
             return value
         else:
-            raise ValidationError(_('Wrong solution'))
+            raise ValidationError('Wrong solution')
 
     def validate_rate(self, value):
         self.map = self._get_map_obj()
         try:
             membership = UserMapMembership.objects.get(owner=self.context['request'].user, map=self.map, done=True)
         except UserMapMembership.DoesNotExist:
-            raise ValidationError(_('First you have to took this map'))  # TODO tests
+            raise ValidationError('First you have to took this map')  # TODO tests
         if not membership.rate:
             old_rating = self.instance.map.rating or 0
             new_rating = old_rating + value

@@ -12,7 +12,7 @@ class Map(AccessibleModel, TimestampableModel):
         through_fields=('map', 'owner'),
         related_name='players'
     )
-    skin = models.ForeignKey(Skins, default=1)
+    skin = models.ForeignKey(Skins, default=1, on_delete=models.CASCADE)
     rating = models.IntegerField(help_text="summary rating of map", null=True)
 
 
@@ -29,7 +29,7 @@ class MapLocation(AccessibleModel, TimestampableModel):
 
 
 class OnMap(MapLocation):
-    map = models.ForeignKey(Map, help_text='id of map that pointed')
+    map = models.ForeignKey(Map, help_text='id of map that pointed', on_delete=models.CASCADE)
 
     class Meta:
         abstract = True
@@ -37,7 +37,7 @@ class OnMap(MapLocation):
 
 
 class OnMapUniq(MapLocation):
-    map = models.OneToOneField(Map)
+    map = models.OneToOneField(Map,on_delete=models.CASCADE)
 
     class Meta:
         abstract = True

@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import authenticate
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.models import User
@@ -33,8 +32,8 @@ class LoginSerializer(serializers.Serializer):
     password = serializers.CharField(required=True)
 
     default_error_messages = {
-        'inactive_account': _('User account is disabled.'),
-        'invalid_credentials': _('Unable to login with provided credentials.'),
+        'inactive_account': 'User account is disabled.',
+        'invalid_credentials': 'Unable to login with provided credentials.',
     }
 
     def __init__(self, *args, **kwargs):

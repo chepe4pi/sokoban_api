@@ -1,13 +1,13 @@
 from django.db import models
+
 from sk_core.models import OwnableModel, TimestampableModel
 from sk_map.models import Map
-from django.contrib.postgres.fields import JSONField
-from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db.models import JSONField
 
 
 class UserMapMembership(OwnableModel, TimestampableModel):
-    map = models.ForeignKey(Map, help_text='id of map that pointed to the game')
+    map = models.ForeignKey(Map, help_text='id of map that pointed to the game',on_delete=models.CASCADE)
     rate = models.PositiveSmallIntegerField(
         validators=[MaxValueValidator(4), MinValueValidator(1)],
         null=True,

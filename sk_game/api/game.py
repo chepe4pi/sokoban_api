@@ -5,7 +5,6 @@ from ..models import UserMapMembership
 from rest_framework.permissions import IsAuthenticated
 from ..serializers.game import GameSerializer
 from rest_framework.exceptions import ValidationError
-from django.utils.translation import ugettext_lazy as _
 
 
 class GameViewSet(BaseModelViewSet, ModelViewSet):
@@ -52,7 +51,7 @@ class GameViewSet(BaseModelViewSet, ModelViewSet):
 
     def perform_create(self, serializer):
         if UserMapMembership.objects.filter(map=serializer.validated_data['map'], owner=self.request.user).count() > 0:
-            raise ValidationError({'non_field_errors': _('This Map User Membership already exist')})
+            raise ValidationError({'non_field_errors': 'This Map User Membership already exist'})
         super(GameViewSet, self).perform_create(serializer)
         instance = serializer.save()
         setattr(instance, 'done', True)
